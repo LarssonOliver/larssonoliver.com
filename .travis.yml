@@ -7,6 +7,7 @@ node_js:
 cache: npm
 
 script: npm run build
+script: echo 'www.larssonoliver.com' > dist/CNAME 
 
 deploy:
   provider: pages
