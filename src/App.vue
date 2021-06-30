@@ -26,5 +26,6 @@ body {
 #app {
   height: 100%;
   width: 100%;
+  background-color: #2e3440;
 }
 </style>

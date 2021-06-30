@@ -7,7 +7,7 @@ import { defineComponent, ref } from "vue";
 import vertexSrc from "!raw-loader!@/shaders/vertex.glsl";
 import fragmentSrc from "!raw-loader!@/shaders/fragment.glsl";
 
-const renderScale = 0.5;
+const renderScale = 0.75;
 
 export default defineComponent({
   setup: function () {
@@ -73,6 +73,7 @@ export default defineComponent({
         this.canvas.width = window.innerWidth / 2;
         this.canvas.height = window.innerHeight / 2;
         gl.viewport(0, 0, gl.drawingBufferWidth, gl.drawingBufferHeight);
+        startRender();
       }
     });
 

@@ -59,7 +59,7 @@ void main(void)
 
 	// Fade the bottom pixels to background color
 	float bottomFade = (gl_FragCoord.y / resolution.y) / .1;
-	color = mix(vec3(0.), color, min(1., bottomFade));
+	color = mix(vec3(.18, .20, .25), color, min(1., bottomFade));
 
 	gl_FragColor = vec4(color, 1.);
 }
