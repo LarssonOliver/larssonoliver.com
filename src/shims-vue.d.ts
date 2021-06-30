@@ -5,4 +5,7 @@ declare module '*.vue' {
   export default component
 }
 
-declare module "!raw-loader!*";
+declare module "!raw-loader!*" {
+  const string: string;
+  export default string;
+};
