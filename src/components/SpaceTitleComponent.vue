@@ -1,15 +1,18 @@
 <template>
   <canvas id="spaceCanvas" ref="canvas" />
+  <title-text-component />
 </template>
 
 <script lang="ts">
 import { defineComponent, ref } from "vue";
 import vertexSrc from "!raw-loader!@/shaders/vertex.glsl";
 import fragmentSrc from "!raw-loader!@/shaders/fragment.glsl";
+import TitleTextComponent from "./TitleTextComponent.vue";
 
 const renderScale = 0.75;
 
 export default defineComponent({
+  components: { TitleTextComponent },
   setup: function () {
     const canvas = ref<HTMLCanvasElement>();
     return {

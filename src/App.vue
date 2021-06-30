@@ -16,7 +16,8 @@ export default defineComponent({
 
 <style>
 html {
-  overflow: hidden;
+  overflow-y: scroll;
+  background-color: #2e3440;
 }
 
 body {
@@ -26,6 +27,5 @@ body {
 #app {
   height: 100%;
   width: 100%;
-  background-color: #2e3440;
 }
 </style>

@@ -1,12 +1,12 @@
 <template>
-  <space-title-componenta />
+  <space-title-component />
 </template>
 
 <script lang="ts">
-import SpaceTitleComponenta from "@/components/SpaceTitleComponent.vue";
+import SpaceTitleComponent from "@/components/SpaceTitleComponent.vue";
 import { defineComponent } from "vue";
 
 export default defineComponent({
-  components: { SpaceTitleComponenta },
+  components: { SpaceTitleComponent },
 });
 </script>
