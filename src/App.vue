@@ -15,9 +15,11 @@ export default defineComponent({
 </script>
 
 <style>
+@import "assets/vendor/nord.css";
+
 html {
   overflow-y: scroll;
-  background-color: #2e3440;
+  background-color: var(--nord0);
 }
 
 body {
