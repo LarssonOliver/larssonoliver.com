@@ -1,16 +1,25 @@
 <template>
   <div class="container">
-    <div v-for="i in 5" :key="i">
-      <div class="item">Test</div>
-      <hr />
+    <div class="list">
+      <div v-for="i in 5" :key="i">
+        <post-list-item-component title="Title"
+          >Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima
+          dignissimos, repellat sint in nobis exercitationem vel impedit ut sunt
+          alias, asperiores excepturi eos, consequatur animi veritatis sit id
+          illo debitis.</post-list-item-component
+        >
+      </div>
     </div>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
+import PostListItemComponent from "./PostListItemComponent.vue";
 
-export default defineComponent({});
+export default defineComponent({
+  components: { PostListItemComponent },
+});
 </script>
 
 <style scoped>
@@ -28,15 +37,7 @@ export default defineComponent({});
   }
 }
 
-.item {
-  border: 2px dotted red;
-  color: white;
-  height: 200px;
-}
-
-hr {
-  border: 1px solid var(--nord1);
-  margin-block-start: 1em;
-  margin-block-end: 1em;
+.list {
+  padding: 1em;
 }
 </style>
