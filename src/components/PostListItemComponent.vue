@@ -1,5 +1,6 @@
 <template>
   <h2>{{ title }}</h2>
+  <h4 v-if="subtitle">{{ subtitle }}</h4>
   <div class="item">
     <slot />
   </div>
@@ -11,22 +12,28 @@ import { defineComponent } from "vue";
 export default defineComponent({
   props: {
     title: String,
+    subtitle: String,
   },
 });
 </script>
 
 <style scoped>
 .item {
-  border: 2px dotted red;
   color: var(--nord6);
-  height: 200px;
+  margin-bottom: 4em;
+}
+
+h4 {
+  color: var(--nord5);
+  width: 100%;
+  text-align: center;
 }
 
 h2 {
   position: relative;
   text-align: center;
   overflow: hidden;
-  color: var(--nord6);
+  color: var(--nord4);
 }
 
 h2:before,
