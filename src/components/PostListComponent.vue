@@ -12,6 +12,9 @@
           Systems. Outside my studies I am an avid golfer and skier.
         </p>
       </post-list-item-component>
+      <post-list-item-component title="My Projects">
+        TODO
+      </post-list-item-component>
       <post-list-item-component
         title="Tools and Technologies"
         subtitle="A non-exhaustive list of my skills"
@@ -102,6 +105,7 @@ export default defineComponent({
 
 .avatar {
   border-radius: 50%;
+  border: 2px solid var(--nord3);
   width: 12rem;
   height: 12rem;
   margin-left: 5%;
