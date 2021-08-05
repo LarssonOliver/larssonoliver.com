@@ -39,12 +39,13 @@
           <tech-icon-component icon="html5-original" title="HTML5" />
           <tech-icon-component icon="javascript-original" title="JavaScript" />
           <tech-icon-component icon="nodejs-original" title="NodeJS" />
+          <br />
           <tech-icon-component icon="typescript-original" title="TypeScript" />
           <tech-icon-component icon="vuejs-original" title="VueJS" />
-          <hr />
-          <h3>Novice</h3>
           <tech-icon-component icon="electron-original" title="Electron" />
           <tech-icon-component icon="go-original" title="Go" />
+          <hr />
+          <h3>Novice</h3>
           <tech-icon-component icon="matlab-original" title="Matlab" />
           <tech-icon-component
             icon="microsoftsqlserver-plain"
