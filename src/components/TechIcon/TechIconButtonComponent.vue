@@ -23,6 +23,10 @@ export default defineComponent({
 </script>
 
 <style scoped>
+a {
+  height: 0;
+}
+
 img:hover {
   cursor: pointer;
   filter: brightness(120%);

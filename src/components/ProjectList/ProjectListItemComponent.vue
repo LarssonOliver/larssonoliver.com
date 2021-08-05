@@ -6,19 +6,19 @@
     <img v-else :src="img" :alt="title" class="image" />
 
     <div class="text">
-      <div class="title">
-        <h3>{{ title }}</h3>
+      <h3 class="title">
+        {{ title }}
         <tech-icon-button-component
           v-if="github"
           icon="github-original"
           inverted
           small
-          title="Repository on Github"
+          :title="`${title} on Github`"
           :href="github"
           new-tab
           class="repolink"
         />
-      </div>
+      </h3>
       <p><slot /></p>
     </div>
   </div>
@@ -41,7 +41,7 @@ export default defineComponent({
 
 <style scoped>
 .repolink {
-  margin-top: 1rem;
+  margin-top: -0.25em;
 }
 
 .title {
