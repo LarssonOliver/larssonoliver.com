@@ -4,7 +4,7 @@
     :target="newTab ? '_blank' : undefined"
     :rel="newTab ? 'noopener noreferrer' : undefined"
   >
-    <tech-icon-component :icon="icon" :inverted="inverted" />
+    <tech-icon-component :icon="icon" :inverted="inverted" :small="small" />
   </a>
 </template>
 

@@ -16,6 +16,7 @@
           title="Repository on Github"
           :href="github"
           new-tab
+          class="repolink"
         />
       </div>
       <p><slot /></p>
@@ -39,6 +40,10 @@ export default defineComponent({
 </script>
 
 <style scoped>
+.repolink {
+  margin-top: 1rem;
+}
+
 .title {
   width: 100%;
   display: flex;
