@@ -13,12 +13,9 @@
         </p>
       </post-list-item-component>
       <post-list-item-component title="My Projects">
-        TODO
+        <project-list-component />
       </post-list-item-component>
-      <post-list-item-component
-        title="Tools and Technologies"
-        subtitle="A non-exhaustive list of my skills"
-      >
+      <post-list-item-component title="Tools and Technologies">
         <div style="text-align: center">
           <h3 style="margin-top: 0">Expert</h3>
           <tech-icon-component icon="c-original" title="C" />
@@ -84,6 +81,7 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import PostListItemComponent from "./PostListItemComponent.vue";
+import ProjectListComponent from "./ProjectList/ProjectListComponent.vue";
 import TechIconButtonComponent from "./TechIcon/TechIconButtonComponent.vue";
 import TechIconComponent from "./TechIcon/TechIconComponent.vue";
 
@@ -92,6 +90,7 @@ export default defineComponent({
     PostListItemComponent,
     TechIconComponent,
     TechIconButtonComponent,
+    ProjectListComponent,
   },
 });
 </script>

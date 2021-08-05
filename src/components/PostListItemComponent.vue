@@ -19,7 +19,7 @@ export default defineComponent({
 
 <style scoped>
 .item {
-  color: var(--nord6);
+  color: var(--nord4);
   margin-bottom: 4em;
 }
 
@@ -33,7 +33,7 @@ h2 {
   position: relative;
   text-align: center;
   overflow: hidden;
-  color: var(--nord4);
+  color: var(--nord6);
 }
 
 h2:before,

@@ -23,20 +23,9 @@ export default defineComponent({
 </script>
 
 <style scoped>
-img {
-  height: 4rem;
-  width: 4rem;
-  margin-left: 0.25rem;
-  margin-right: 0.25rem;
-}
-
 img:hover {
   cursor: pointer;
   filter: brightness(120%);
-}
-
-.invertColor {
-  filter: invert(100%);
 }
 
 .invertColor:hover {

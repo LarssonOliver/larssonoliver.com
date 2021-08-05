@@ -1,5 +1,8 @@
 <template>
-  <img :src="fullUrl(icon)" :class="{ invertColor: inverted }" />
+  <img
+    :src="fullUrl(icon)"
+    :class="{ invertColor: inverted, smallIcon: small }"
+  />
 </template>
 
 <script lang="ts">
@@ -11,6 +14,7 @@ export default defineComponent({
   props: {
     icon: String,
     inverted: Boolean,
+    small: Boolean,
   },
   methods: {
     fullUrl(iconName: string): string {
@@ -27,6 +31,11 @@ img {
   width: 4rem;
   margin-left: 0.25rem;
   margin-right: 0.25rem;
+}
+
+.smallIcon {
+  height: 2rem;
+  width: 2rem;
 }
 
 .invertColor {
