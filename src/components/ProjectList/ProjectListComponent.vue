@@ -2,7 +2,7 @@
   <div>
     <project-list-item-component
       title="larssonoliver.com"
-      img="vue.png"
+      img="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg"
       href="https://larssonoliver.com"
       github="https://github.com/larssonoliver/larssonoliver.github.io"
     >
@@ -13,6 +13,7 @@
       title="PressureEngine"
       img="pressureengine.png"
       github="https://github.com/larssonoliver/PressureEngine"
+      fillImg
     >
       A 3D graphics engine written in C++ using OpenGL for my end of high school
       project. Features include shadows, water, a particle system and more!

@@ -117,7 +117,8 @@ export default defineComponent({
   width: calc(100% - 12em - 10%);
   margin-left: calc(5% + 12em);
   text-align: justify;
-  min-height: 12rem;
+  min-height: 10rem;
+  padding-top: 1rem;
 }
 
 @media screen and (max-width: 550px) {

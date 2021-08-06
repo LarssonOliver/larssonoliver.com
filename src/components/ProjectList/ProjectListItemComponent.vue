@@ -1,9 +1,15 @@
 <template>
   <div>
     <a v-if="href" :href="href">
-      <img :src="img" :alt="title" class="image" />
+      <img :src="img" :alt="title" class="image" :class="{ fill: fillImg }" />
     </a>
-    <img v-else :src="img" :alt="title" class="image" />
+    <img
+      v-else
+      :src="img"
+      :alt="title"
+      class="image"
+      :class="{ fill: fillImg }"
+    />
 
     <div class="text">
       <h3 class="title">
@@ -32,6 +38,7 @@ export default defineComponent({
   components: { TechIconButtonComponent },
   props: {
     img: String,
+    fillImg: Boolean,
     title: String,
     href: String,
     github: String,
@@ -57,6 +64,10 @@ export default defineComponent({
   margin-left: 5%;
   margin-top: 0.5rem;
   float: left;
+  object-fit: contain;
+}
+
+.image.fill {
   object-fit: cover;
 }
 
