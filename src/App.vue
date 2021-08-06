@@ -8,10 +8,6 @@ import HomeView from "./views/HomeView.vue";
 
 export default defineComponent({
   name: "App",
-  created: function () {
-    if (document.documentElement && process.env.NODE_ENV === "production")
-      document.documentElement.style.overflowY = "hidden";
-  },
   components: {
     HomeView,
   },
