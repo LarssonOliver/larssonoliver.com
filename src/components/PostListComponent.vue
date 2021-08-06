@@ -66,6 +66,14 @@
           <tech-icon-component icon="vim-original" title="Vim" />
         </div>
       </post-list-item-component>
+      <post-list-item-component title="Contact">
+        <div class="contact-body">
+          The easiest way to get in contact is by sending an email to
+          <a class="email" href="malito:contact@larssonoliver.com">
+            contact@larssonoliver.com</a
+          >!
+        </div>
+      </post-list-item-component>
     </div>
   </div>
   <div class="contact">
@@ -97,6 +105,19 @@ export default defineComponent({
 </script>
 
 <style scoped>
+.email {
+  background-color: var(--nord9);
+  border-radius: 0.25em;
+  border: 2px solid var(--nord3);
+}
+
+.contact-body {
+  width: 90%;
+  margin-left: 5%;
+  text-align: justify;
+  font-size: 1.2rem;
+}
+
 .contact {
   position: fixed;
   bottom: 0.5rem;

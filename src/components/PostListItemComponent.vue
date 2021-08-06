@@ -1,6 +1,6 @@
 <template>
   <h2>{{ title }}</h2>
-  <h4 v-if="subtitle">{{ subtitle }}</h4>
+  <p v-if="subtitle">{{ subtitle }}</p>
   <div class="item">
     <slot />
   </div>
@@ -23,10 +23,11 @@ export default defineComponent({
   margin-bottom: 4em;
 }
 
-h4 {
+p {
   color: var(--nord5);
   width: 100%;
   text-align: center;
+  font-size: 1.2rem;
 }
 
 h2 {
