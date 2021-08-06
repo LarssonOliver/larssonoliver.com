@@ -9,7 +9,7 @@ import vertexSrc from "!raw-loader!@/shaders/vertex.glsl";
 import fragmentSrc from "!raw-loader!@/shaders/fragment.glsl";
 import TitleTextComponent from "./TitleTextComponent.vue";
 
-const renderScale = 0.75;
+const renderScale = 0.5;
 
 export default defineComponent({
   components: { TitleTextComponent },
@@ -244,5 +244,6 @@ function drawScene(
 #spaceCanvas {
   width: 100%;
   height: 100%;
+  filter: blur(0.1rem);
 }
 </style>

@@ -1,7 +1,6 @@
 <template>
   <pre id="name" />
   <pre id="title" />
-  <pre id="construction" />
 </template>
 
 <script lang="ts">
@@ -15,10 +14,10 @@ export default defineComponent({
   methods: {
     startName() {
       new Typewriter("#name", {})
-        .changeDelay(75)
-        .pauseFor(2000)
-        .typeString("I am Oliver")
-        .pauseFor(1000)
+        .changeDelay(50)
+        .pauseFor(500)
+        .typeString("My name is Oliver")
+        .pauseFor(250)
         .callFunction(this.startTitle)
         .start();
     },
@@ -27,19 +26,8 @@ export default defineComponent({
       (test[0] as HTMLElement).style.display = "none";
 
       new Typewriter("#title", {})
-        .changeDelay(75)
-        .typeString("A computer scientist from Sweden")
-        .pauseFor(2000)
-        .callFunction(this.startConstruction)
-        .start();
-    },
-    startConstruction() {
-      const test = document.getElementsByClassName("Typewriter__cursor");
-      (test[1] as HTMLElement).style.display = "none";
-
-      new Typewriter("#construction", {})
         .changeDelay(50)
-        .typeString("My site is currently under construction, come back later!")
+        .typeString("I am a Computer Science student from Sweden")
         .start();
     },
   },
@@ -63,13 +51,7 @@ pre {
 }
 
 #title {
-  top: calc(50vh - (3.5vw * 1.2));
-  font-size: 3.5vw;
-}
-
-#construction {
-  top: calc(50vh + (2vw * 1.2));
+  top: calc(50vh - (2vw * 1.2));
   font-size: 2vw;
-  color: #d8dee9;
 }
 </style>

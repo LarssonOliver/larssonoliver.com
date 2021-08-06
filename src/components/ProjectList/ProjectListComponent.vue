@@ -2,9 +2,10 @@
   <div>
     <project-list-item-component
       title="larssonoliver.com"
-      img="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg"
+      img="larssonoliver.png"
       href="https://larssonoliver.com"
       github="https://github.com/larssonoliver/larssonoliver.github.io"
+      fillImg
     >
       My personal webiste. Built with Vue 3, TypeScript and WebGL. Hosted
       through Github pages.
