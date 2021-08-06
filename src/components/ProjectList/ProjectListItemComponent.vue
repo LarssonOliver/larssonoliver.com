@@ -73,9 +73,23 @@ export default defineComponent({
 
 .text {
   font-size: 1.2rem;
-  width: calc(100% - 12em - 10%);
-  margin-left: calc(5% + 12em);
+  width: calc(100% - 12rem - 15%);
+  margin-left: calc(10% + 12rem);
   text-align: justify;
   min-height: 9rem;
+}
+
+@media screen and (max-width: 550px) {
+  .image {
+    width: 90%;
+    float: none;
+  }
+
+  .text {
+    width: 90%;
+    margin-left: 5%;
+    min-height: 0;
+    margin-bottom: 2rem;
+  }
 }
 </style>
