@@ -1,6 +1,7 @@
 <template>
   <canvas id="spaceCanvas" ref="canvas" />
   <title-text-component />
+  <div class="arrow">↓</div>
 </template>
 
 <script lang="ts">
@@ -245,5 +246,28 @@ function drawScene(
   width: 100%;
   height: 100%;
   filter: blur(0.1rem);
+}
+
+.arrow {
+  position: absolute;
+  color: var(--nord3);
+  font-size: 4rem;
+  width: 100%;
+  top: calc(100% - 6rem);
+  text-align: center;
+
+  animation: arrow-animation 2s infinite ease;
+}
+
+@keyframes arrow-animation {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-25%);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
 </style>
