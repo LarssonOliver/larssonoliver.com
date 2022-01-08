@@ -1,91 +1,88 @@
 <template>
-  <div class="container">
-    <div class="list">
-      <post-list-item-component title="About Me">
-        <img
-          class="avatar"
-          src="https://avatars.githubusercontent.com/u/15251568?v=4"
+  <div class="list">
+    <post-list-item-component title="About Me">
+      <img
+        class="avatar"
+        src="https://avatars.githubusercontent.com/u/15251568?v=4"
+      />
+      <p class="avatar-text">
+        My name is Oliver and I am a Computer Science student from northern
+        Sweden. I specialize in High Performance Computing and Distributed
+        Systems. Outside my studies I am an avid golfer and skier.
+      </p>
+    </post-list-item-component>
+    <post-list-item-component title="My Projects" colorHex="#3b4252">
+      <project-list-component />
+    </post-list-item-component>
+    <post-list-item-component
+      title="Tools and Technologies"
+      prevColorHex="#3b4252"
+    >
+      <div style="text-align: center">
+        <h3 style="margin-top: 0">Expert</h3>
+        <tech-icon-component icon="c-original" title="C" />
+        <tech-icon-component icon="csharp-original" title="C#" />
+        <tech-icon-component icon="dotnetcore-original" title=".NET Core" />
+        <tech-icon-component icon="java-original" title="Java" />
+        <tech-icon-component icon="visualstudio-plain" title="Visual Studio" />
+        <tech-icon-component
+          icon="vscode-original"
+          title="Visual Studio Code"
         />
-        <p class="avatar-text">
-          My name is Oliver and I am a Computer Science student from northern
-          Sweden. I specialize in High Performance Computing and Distributed
-          Systems. Outside my studies I am an avid golfer and skier.
-        </p>
-      </post-list-item-component>
-      <post-list-item-component title="My Projects">
-        <project-list-component />
-      </post-list-item-component>
-      <post-list-item-component title="Tools and Technologies">
-        <div style="text-align: center">
-          <h3 style="margin-top: 0">Expert</h3>
-          <tech-icon-component icon="c-original" title="C" />
-          <tech-icon-component icon="csharp-original" title="C#" />
-          <tech-icon-component icon="dotnetcore-original" title=".NET Core" />
-          <tech-icon-component icon="java-original" title="Java" />
-          <tech-icon-component
-            icon="visualstudio-plain"
-            title="Visual Studio"
-          />
-          <tech-icon-component
-            icon="vscode-original"
-            title="Visual Studio Code"
-          />
-          <hr />
-          <h3>Proficient</h3>
-          <tech-icon-component icon="cplusplus-original" title="C++" />
-          <tech-icon-component icon="bash-original" title="Bash" inverted />
-          <tech-icon-component icon="git-original" title="Git" />
-          <tech-icon-component icon="css3-original" title="CSS3" />
-          <tech-icon-component icon="html5-original" title="HTML5" />
-          <tech-icon-component icon="javascript-original" title="JavaScript" />
-          <tech-icon-component icon="nodejs-original" title="NodeJS" />
-          <br />
-          <tech-icon-component icon="typescript-original" title="TypeScript" />
-          <tech-icon-component icon="vuejs-original" title="VueJS" />
-          <tech-icon-component icon="electron-original" title="Electron" />
-          <tech-icon-component icon="go-original" title="Go" />
-          <tech-icon-component icon="docker-original" title="Docker" />
-          <tech-icon-component icon="kubernetes-plain" title="Kubernetes" />
-          <tech-icon-component
-            icon="markdown-original"
-            title="Markdown"
-            inverted
-          />
-          <tech-icon-component icon="opengl-plain" title="OpenGL" />
-          <hr />
-          <h3>Novice</h3>
-          <tech-icon-component icon="matlab-original" title="Matlab" />
-          <tech-icon-component
-            icon="microsoftsqlserver-plain"
-            title="MSSQL"
-            inverted
-          />
-          <tech-icon-component icon="python-original" title="Python" />
-          <tech-icon-component icon="react-original" title="React" />
-          <tech-icon-component icon="denojs-original" title="React" inverted />
-          <tech-icon-component
-            icon="neo4j-plain-wordmark"
-            title="Neo4j"
-            inverted
-          />
-          <tech-icon-component icon="postgresql-plain" title="PostgreSQL" />
-          <tech-icon-component icon="nginx-original" title="Nginx" />
-        </div>
-      </post-list-item-component>
-      <post-list-item-component
-        title="Next Up!"
-        subtitle="Tools and technologies I want to learn next."
-      >
-        <div style="text-align: center">
-          <tech-icon-component icon="vim-original" title="Vim" />
-          <tech-icon-component icon="rust-plain" title="Rust" inverted />
-        </div>
-      </post-list-item-component>
-      <post-list-item-component v-if="false" title="Contact">
-        <div class="contact-body">contact[at]larssonoliver[dot]com!</div>
-      </post-list-item-component>
-    </div>
+        <hr />
+        <h3>Proficient</h3>
+        <tech-icon-component icon="cplusplus-original" title="C++" />
+        <tech-icon-component icon="bash-original" title="Bash" inverted />
+        <tech-icon-component icon="git-original" title="Git" />
+        <tech-icon-component icon="css3-original" title="CSS3" />
+        <tech-icon-component icon="html5-original" title="HTML5" />
+        <tech-icon-component icon="javascript-original" title="JavaScript" />
+        <tech-icon-component icon="nodejs-original" title="NodeJS" />
+        <br />
+        <tech-icon-component icon="typescript-original" title="TypeScript" />
+        <tech-icon-component icon="vuejs-original" title="VueJS" />
+        <tech-icon-component icon="electron-original" title="Electron" />
+        <tech-icon-component icon="go-original" title="Go" />
+        <tech-icon-component icon="docker-original" title="Docker" />
+        <tech-icon-component icon="kubernetes-plain" title="Kubernetes" />
+        <tech-icon-component
+          icon="markdown-original"
+          title="Markdown"
+          inverted
+        />
+        <tech-icon-component icon="opengl-plain" title="OpenGL" />
+        <hr />
+        <h3>Novice</h3>
+        <tech-icon-component icon="matlab-original" title="Matlab" />
+        <tech-icon-component
+          icon="microsoftsqlserver-plain"
+          title="MSSQL"
+          inverted
+        />
+        <tech-icon-component icon="python-original" title="Python" />
+        <tech-icon-component icon="react-original" title="React" />
+        <tech-icon-component icon="denojs-original" title="React" inverted />
+        <tech-icon-component
+          icon="neo4j-plain-wordmark"
+          title="Neo4j"
+          inverted
+        />
+        <tech-icon-component icon="postgresql-plain" title="PostgreSQL" />
+        <tech-icon-component icon="nginx-original" title="Nginx" />
+      </div>
+    </post-list-item-component>
+    <post-list-item-component
+      title="Next Up!"
+      subtitle="Tools and technologies I want to learn next."
+      colorHex="#3b4252"
+    >
+      <div style="text-align: center">
+        <tech-icon-component icon="vim-original" title="Vim" />
+        <tech-icon-component icon="rust-plain" title="Rust" inverted />
+      </div>
+    </post-list-item-component>
   </div>
+
   <div class="contact">
     <tech-icon-button-component
       icon="github-original"
@@ -165,29 +162,12 @@ export default defineComponent({
   }
 }
 
-.container {
-  width: 800px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-}
-
-@media screen and (max-width: 850px) {
-  .container {
-    width: 100%;
-  }
-  .contact {
-    display: none;
-  }
-}
-
 hr {
   border: 1px solid var(--nord1);
   width: 90%;
 }
 
 .list {
-  padding: 1rem;
+  padding-top: 1rem;
 }
 </style>
