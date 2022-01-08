@@ -24,7 +24,7 @@
       img="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg"
       github="https://github.com/larssonoliver/bf"
     >
-      A brainf*ck interpreter written in C which conforms to the language
+      A brainfuck interpreter written in C which conforms to the language
       specification.
     </project-list-item-component>
   </div>

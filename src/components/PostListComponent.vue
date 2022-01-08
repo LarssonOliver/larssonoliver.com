@@ -44,6 +44,14 @@
           <tech-icon-component icon="vuejs-original" title="VueJS" />
           <tech-icon-component icon="electron-original" title="Electron" />
           <tech-icon-component icon="go-original" title="Go" />
+          <tech-icon-component icon="docker-original" title="Docker" />
+          <tech-icon-component icon="kubernetes-plain" title="Kubernetes" />
+          <tech-icon-component
+            icon="markdown-original"
+            title="Markdown"
+            inverted
+          />
+          <tech-icon-component icon="opengl-plain" title="OpenGL" />
           <hr />
           <h3>Novice</h3>
           <tech-icon-component icon="matlab-original" title="Matlab" />
@@ -54,16 +62,23 @@
           />
           <tech-icon-component icon="python-original" title="Python" />
           <tech-icon-component icon="react-original" title="React" />
+          <tech-icon-component icon="denojs-original" title="React" inverted />
+          <tech-icon-component
+            icon="neo4j-plain-wordmark"
+            title="Neo4j"
+            inverted
+          />
+          <tech-icon-component icon="postgresql-plain" title="PostgreSQL" />
+          <tech-icon-component icon="nginx-original" title="Nginx" />
         </div>
       </post-list-item-component>
       <post-list-item-component
         title="Next Up!"
-        subtitle="Tools and technologies I want to learn next"
+        subtitle="Tools and technologies I want to learn next."
       >
         <div style="text-align: center">
-          <tech-icon-component icon="docker-original" title="Docker" />
-          <tech-icon-component icon="kubernetes-plain" title="Kubernetes" />
           <tech-icon-component icon="vim-original" title="Vim" />
+          <tech-icon-component icon="rust-plain" title="Rust" inverted />
         </div>
       </post-list-item-component>
       <post-list-item-component v-if="false" title="Contact">
@@ -77,6 +92,13 @@
       inverted
       title="Github"
       href="https://github.com/larssonoliver"
+      new-tab
+    />
+    <br />
+    <tech-icon-button-component
+      icon="linkedin-original"
+      title="LinkedIn"
+      href="https://www.linkedin.com/in/larssonoliver"
       new-tab
     />
   </div>
