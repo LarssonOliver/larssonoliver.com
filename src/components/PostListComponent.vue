@@ -1,6 +1,6 @@
 <template>
   <div class="list">
-    <post-list-item-component title="About Me">
+    <post-list-item-component title="About Me" hideDivider>
       <img
         class="avatar"
         src="https://avatars.githubusercontent.com/u/15251568?v=4"
@@ -130,6 +130,13 @@ export default defineComponent({
   position: fixed;
   bottom: 0.5rem;
   right: 0.5rem;
+}
+
+@media screen and (max-width: 975px) {
+  .contact {
+    position: absolute;
+    margin-top: 1rem;
+  }
 }
 
 .avatar {
