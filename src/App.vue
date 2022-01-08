@@ -11,6 +11,9 @@ export default defineComponent({
   components: {
     HomeView,
   },
+  mounted: function () {
+    document.title = "Oliver Larsson";
+  },
 });
 </script>
 
