@@ -8,6 +8,7 @@
 <script lang="ts">
 import { defineComponent, ref } from "vue";
 import REGL from "regl";
+import random from "../util/random";
 import copyVertSrc from "!raw-loader!@/shaders/copy_vertex.glsl";
 import copyFragSrc from "!raw-loader!@/shaders/copy_fragment.glsl";
 import nebulaVertSrc from "!raw-loader!@/shaders/nebula_vertex.glsl";
@@ -39,11 +40,11 @@ export default defineComponent({
       nebulaRenderer: undefined as REGL.DrawCommand | undefined,
       starRenderer: undefined as REGL.DrawCommand | undefined,
       maxTextureSize: undefined as number | undefined,
+      seed: Math.floor(Math.random() * 100000),
     };
   },
   mounted: function () {
     const canvas = this.canv;
-
     if (canvas === undefined) throw new Error("Canvas is undefined");
 
     this.canvas = canvas;
@@ -97,7 +98,7 @@ export default defineComponent({
       }
 
       // let scale = Math.min(width, height);
-      let scale = Math.max(width, height);
+      const scale = Math.max(width, height);
 
       (this.regl as REGL.Regl)({ framebuffer: this.ping })(() => {
         this.regl?.clear({ color: [0, 0, 0, 1] });
@@ -107,7 +108,13 @@ export default defineComponent({
         this.regl?.clear({ color: [0, 0, 0, 1] });
       });
 
-      const data = this.generatePointStars(width, height, 0.05, 0.125);
+      const data = this.generatePointStars(
+        width,
+        height,
+        0.05,
+        0.125,
+        random(this.seed)
+      );
       (this.pointStarTexture as REGL.Texture2D)({
         format: "rgb",
         width,
@@ -117,7 +124,9 @@ export default defineComponent({
         data,
       });
 
-      const nebulacount = Math.round(Math.random() * 4 + 1);
+      const rand = random(this.seed);
+
+      const nebulacount = Math.round(rand() * 4 + 1);
       const nebulaOut = this.alternate(
         this.pointStarTexture as REGL.Texture2D,
         this.ping as REGL.Framebuffer2D,
@@ -130,16 +139,16 @@ export default defineComponent({
             viewport,
             width,
             height,
-            offset: [Math.random() * 100, Math.random() * 100],
-            scale: (Math.random() * 2 + 1) / scale,
-            color: [Math.random(), Math.random(), Math.random()],
-            density: Math.random() * 0.2,
-            falloff: Math.random() * 2.0 + 3.0,
+            offset: [rand() * 100, rand() * 100],
+            scale: (rand() * 2 + 1) / scale,
+            color: [rand(), rand(), rand()],
+            density: rand() * 0.2,
+            falloff: rand() * 2.0 + 3.0,
           } as Partial<NebulaProps>);
         }
       );
 
-      const starCount = Math.random() * 8 + 1;
+      const starCount = rand() * 8 + 1;
       this.alternate(
         nebulaOut as REGL.Texture2D,
         this.ping as REGL.Framebuffer2D,
@@ -152,11 +161,11 @@ export default defineComponent({
             viewport,
             scale,
             resolution: [width, height],
-            center: [Math.random(), Math.random()],
+            center: [rand(), rand()],
             coreRadius: 0,
             coreColor: [1, 1, 1],
-            haloColor: [Math.random(), Math.random(), Math.random()],
-            haloFalloff: Math.random() * 1024 + 32,
+            haloColor: [rand(), rand(), rand()],
+            haloFalloff: rand() * 1024 + 32,
           } as Partial<StarProps>);
         }
       );
@@ -171,13 +180,14 @@ export default defineComponent({
       width: number,
       height: number,
       density: number,
-      brightness: number
+      brightness: number,
+      rand: () => number
     ) {
       const count = Math.floor(width * height * density);
       const data = new Uint8Array(width * height * 3);
       for (let i = 0; i < count; i++) {
-        const r = Math.floor(Math.random() * width * height);
-        const c = Math.floor(255 * Math.log(1 - Math.random()) * -brightness);
+        const r = Math.floor(rand() * width * height);
+        const c = Math.floor(255 * Math.log(1 - rand()) * -brightness);
         data[r * 3] = c;
         data[r * 3 + 1] = c;
         data[r * 3 + 2] = c;
