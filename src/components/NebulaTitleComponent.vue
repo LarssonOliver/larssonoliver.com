@@ -345,14 +345,15 @@ interface StarProps {
 
 .fade {
   content: "";
-  position: absolute;
+  position: relative;
   z-index: 1;
-  bottom: 0;
+  bottom: 6em;
   left: 0;
   pointer-events: none;
   background-image: linear-gradient(to bottom, #2e344000 20%, #2e3440ff 85%);
   width: 100%;
   height: 6em;
+  margin-bottom: -6em;
 }
 
 .arrow {
