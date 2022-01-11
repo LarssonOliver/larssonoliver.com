@@ -10,12 +10,13 @@
   },
   "dependencies": {
     "core-js": "^3.6.5",
-    "typewriter-effect": "^2.18.0",
-    "vue": "^3.0.0",
     "glob-parent": ">=5.1.2",
+    "merge": ">=2.1.1",
     "node-forge": ">=1.0.0",
     "postcss": ">=8.2.13",
-    "merge": ">=2.1.1"
+    "regl": "^2.1.0",
+    "typewriter-effect": "^2.18.0",
+    "vue": "^3.0.0"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^4.18.0",

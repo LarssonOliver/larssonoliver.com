@@ -1,238 +1,338 @@
 <template>
-  <canvas id="spaceCanvas" ref="canvas" />
+  <canvas @resize="render" id="spaceCanvas" ref="canv" />
+  <div class="fade" />
   <title-text-component />
   <div class="arrow">↓</div>
 </template>
 
 <script lang="ts">
 import { defineComponent, ref } from "vue";
-import vertexSrc from "!raw-loader!@/shaders/nebula_vertex.glsl";
-import fragmentSrc from "!raw-loader!@/shaders/fragment.glsl";
+import REGL from "regl";
+import copyVertSrc from "!raw-loader!@/shaders/copy_vertex.glsl";
+import copyFragSrc from "!raw-loader!@/shaders/copy_fragment.glsl";
+import nebulaVertSrc from "!raw-loader!@/shaders/nebula_vertex.glsl";
+import nebulaFragSrc from "!raw-loader!@/shaders/nebula_fragment.glsl";
+import starVertSrc from "!raw-loader!@/shaders/star_vertex.glsl";
+import starFragSrc from "!raw-loader!@/shaders/star_fragment.glsl";
 import TitleTextComponent from "./TitleTextComponent.vue";
+
+const renderscale = 1;
 
 export default defineComponent({
   components: { TitleTextComponent },
   setup: function () {
     const canvas = ref<HTMLCanvasElement>();
     return {
-      canvas,
+      canv: canvas,
+    };
+  },
+  data: function () {
+    return {
+      canvas: undefined as HTMLCanvasElement | undefined,
+      regl: undefined as REGL.Regl | undefined,
+      lastWidth: 0,
+      lastHeight: 0,
+      pointStarTexture: undefined as REGL.Texture2D | undefined,
+      ping: undefined as REGL.Framebuffer | undefined,
+      pong: undefined as REGL.Framebuffer | undefined,
+      copyRenderer: undefined as REGL.DrawCommand | undefined,
+      nebulaRenderer: undefined as REGL.DrawCommand | undefined,
+      starRenderer: undefined as REGL.DrawCommand | undefined,
+      maxTextureSize: undefined as number | undefined,
     };
   },
   mounted: function () {
-    if (this.canvas === undefined) throw new Error();
+    const canvas = this.canv;
 
-    const gl = this.canvas.getContext("webgl");
-    if (gl === null) {
-      throw new Error(
-        "Unable to initialize WebGL. Your browser or machine may not support it."
-      );
-    }
+    if (canvas === undefined) throw new Error("Canvas is undefined");
 
-    const shaderProgram = initShaderProgram(gl, vertexSrc, fragmentSrc);
-    const buffer = initBuffer(gl);
+    this.canvas = canvas;
+    this.canvas.width = window.innerWidth * renderscale;
+    this.canvas.height = window.innerHeight * renderscale;
 
-    const programInfo = {
-      program: shaderProgram,
-      attribLocations: {
-        vertexPosition: gl.getAttribLocation(shaderProgram, "a_position"),
-      },
-      uniformLocations: {
-        offset: gl.getUniformLocation(shaderProgram, "offset"),
-        mouse: gl.getUniformLocation(shaderProgram, "mouse"),
-        resolution: gl.getUniformLocation(shaderProgram, "resolution"),
-      },
-    } as ProgramInfo;
+    this.regl = REGL({ canvas: canvas });
+    this.pointStarTexture = this.regl.texture();
 
-    let rendering = false;
-    let mousex: number, mousey: number;
-
-    function startRender() {
-      if (!rendering) {
-        rendering = true;
-        requestAnimationFrame(render);
-      }
-    }
-
-    function render() {
-      if (gl !== null) {
-        drawScene(gl, programInfo, buffer, mousex, mousey);
-        rendering = false;
-      }
-    }
-
-    // Listen to mouse move events in the canvas
-    this.canvas.addEventListener("mousemove", (e) => {
-      mousex = e.offsetX;
-      mousey = e.offsetY;
-      startRender();
+    this.ping = this.regl.framebuffer({
+      color: this.regl.texture(),
+      depth: false,
+      stencil: false,
+      depthStencil: false,
     });
+    this.pong = this.regl.framebuffer({
+      color: this.regl.texture(),
+      depth: false,
+      stencil: false,
+      depthStencil: false,
+    });
+    this.copyRenderer = createCopyRenderer(this.regl);
+    this.nebulaRenderer = createNebulaRenderer(this.regl);
+    this.starRenderer = createStarRenderer(this.regl);
 
     window.addEventListener("resize", () => {
-      if (this.canvas !== undefined && this.canvas !== null) {
-        this.canvas.width = window.innerWidth / 2;
-        this.canvas.height = window.innerHeight / 2;
-        gl.viewport(0, 0, gl.drawingBufferWidth, gl.drawingBufferHeight);
-        startRender();
-      }
+      if (this.canvas === undefined) return;
+      this.canvas.width = window.innerWidth * renderscale;
+      this.canvas.height = window.innerHeight * renderscale;
+      this.render();
     });
 
-    startRender();
+    this.render();
+  },
+  methods: {
+    render: function () {
+      const width = this.canvas?.width as number;
+      const height = this.canvas?.height as number;
+      const viewport = {
+        x: 0,
+        y: 0,
+        width: width,
+        height: height,
+      } as Viewport;
+
+      if (width !== this.lastWidth || height !== this.lastHeight) {
+        this.ping?.resize(width, height);
+        this.pong?.resize(width, height);
+        this.lastWidth = width;
+        this.lastHeight = height;
+      }
+
+      // let scale = Math.min(width, height);
+      let scale = Math.max(width, height);
+
+      (this.regl as REGL.Regl)({ framebuffer: this.ping })(() => {
+        this.regl?.clear({ color: [0, 0, 0, 1] });
+      });
+
+      (this.regl as REGL.Regl)({ framebuffer: this.pong })(() => {
+        this.regl?.clear({ color: [0, 0, 0, 1] });
+      });
+
+      const data = this.generatePointStars(width, height, 0.05, 0.125);
+      (this.pointStarTexture as REGL.Texture2D)({
+        format: "rgb",
+        width,
+        height,
+        wrapS: "clamp",
+        wrapT: "clamp",
+        data,
+      });
+
+      const nebulacount = Math.round(Math.random() * 4 + 1);
+      const nebulaOut = this.alternate(
+        this.pointStarTexture as REGL.Texture2D,
+        this.ping as REGL.Framebuffer2D,
+        this.pong as REGL.Framebuffer2D,
+        nebulacount,
+        (source, dest) => {
+          (this.nebulaRenderer as REGL.DrawCommand)({
+            source,
+            destination: dest,
+            viewport,
+            width,
+            height,
+            offset: [Math.random() * 100, Math.random() * 100],
+            scale: (Math.random() * 2 + 1) / scale,
+            color: [Math.random(), Math.random(), Math.random()],
+            density: Math.random() * 0.2,
+            falloff: Math.random() * 2.0 + 3.0,
+          } as Partial<NebulaProps>);
+        }
+      );
+
+      const starCount = Math.random() * 8 + 1;
+      this.alternate(
+        nebulaOut as REGL.Texture2D,
+        this.ping as REGL.Framebuffer2D,
+        this.pong as REGL.Framebuffer2D,
+        starCount,
+        (source, dest) => {
+          (this.starRenderer as REGL.DrawCommand)({
+            source,
+            destination: dest,
+            viewport,
+            scale,
+            resolution: [width, height],
+            center: [Math.random(), Math.random()],
+            coreRadius: 0,
+            coreColor: [1, 1, 1],
+            haloColor: [Math.random(), Math.random(), Math.random()],
+            haloFalloff: Math.random() * 1024 + 32,
+          } as Partial<StarProps>);
+        }
+      );
+
+      (this.copyRenderer as REGL.DrawCommand)({
+        source: nebulaOut,
+        viewport,
+      });
+    },
+
+    generatePointStars: function (
+      width: number,
+      height: number,
+      density: number,
+      brightness: number
+    ) {
+      const count = Math.floor(width * height * density);
+      const data = new Uint8Array(width * height * 3);
+      for (let i = 0; i < count; i++) {
+        const r = Math.floor(Math.random() * width * height);
+        const c = Math.floor(255 * Math.log(1 - Math.random()) * -brightness);
+        data[r * 3] = c;
+        data[r * 3 + 1] = c;
+        data[r * 3 + 2] = c;
+      }
+      return data;
+    },
+    alternate: function (
+      initial: REGL.Framebuffer2D | REGL.Texture2D,
+      alpha: REGL.Framebuffer2D,
+      beta: REGL.Framebuffer2D,
+      count: number,
+      func: (
+        alpha: REGL.Framebuffer2D | REGL.Texture2D,
+        beta: REGL.Framebuffer2D
+      ) => void
+    ) {
+      if (count === 0) return initial;
+      if (initial === alpha) {
+        alpha = beta;
+        beta = initial;
+      }
+
+      func(initial, alpha);
+      let i = 1;
+      if (i === count) return alpha;
+      while (i < count) {
+        func(alpha, beta);
+        i++;
+        if (i === count) return beta;
+        func(beta, alpha);
+        i++;
+        if (i === count) return alpha;
+      }
+    },
   },
 });
 
-interface ProgramInfo {
-  program: WebGLProgram;
-  attribLocations: { [attrib: string]: number };
-  uniformLocations: { [uniform: string]: WebGLUniformLocation };
+const createCopyRenderer = function (
+  regl: REGL.Regl
+): REGL.DrawCommand<REGL.DefaultContext, CopyProps> {
+  return regl({
+    vert: copyVertSrc,
+    frag: copyFragSrc,
+    attributes: {
+      position: regl.buffer([-1, -1, 1, -1, 1, 1, -1, -1, 1, 1, -1, 1]),
+      uv: regl.buffer([0, 0, 1, 0, 1, 1, 0, 0, 1, 1, 0, 1]),
+    },
+    uniforms: {
+      source: regl.prop<CopyProps, "source">("source"),
+    },
+    framebuffer: regl.prop<CopyProps, "destination">("destination"),
+    viewport: regl.prop<CopyProps, "viewport">("viewport"),
+    count: 6,
+  });
+};
+
+interface Viewport {
+  x: number;
+  y: number;
+  width: number;
+  height: number;
 }
 
-/**
- * Initialize a webgl shader program.
- * @param {WebGLRenderingContext} gl webgl rendering context.
- * @param {string} vertSrc vertex shader source
- * @param {string} fragSrc fragment shader source
- */
-function initShaderProgram(
-  gl: WebGLRenderingContext,
-  vertSrc: string,
-  fragSrc: string
-) {
-  const vertex = loadShader(gl, gl.VERTEX_SHADER, vertSrc);
-  const fragment = loadShader(gl, gl.FRAGMENT_SHADER, fragSrc);
-
-  const shaderProgram = gl.createProgram();
-
-  if (shaderProgram === null)
-    throw new Error("An error occurred creating shader program.");
-
-  gl.attachShader(shaderProgram, vertex);
-  gl.attachShader(shaderProgram, fragment);
-  gl.linkProgram(shaderProgram);
-
-  if (!gl.getProgramParameter(shaderProgram, gl.LINK_STATUS)) {
-    const err = new Error(
-      "Unable to initialize the shader program: " +
-        gl.getProgramInfoLog(shaderProgram)
-    );
-    gl.deleteProgram(shaderProgram);
-    throw err;
-  }
-
-  return shaderProgram;
+interface CopyProps {
+  source: REGL.Texture2D | REGL.Framebuffer2D;
+  destination?: REGL.Framebuffer2D;
+  viewport: Viewport;
 }
 
-/**
- * Load and compile a shader from source.
- * @param {WebGLRenderingContext} gl webgl rendering context.
- * @param {number} type type of shader
- * @param {string} src shader source as string
- */
-function loadShader(gl: WebGLRenderingContext, type: number, src: string) {
-  const shader = gl.createShader(type);
-
-  if (shader === null) throw new Error("An error occurred creating shader.");
-
-  gl.shaderSource(shader, src);
-  gl.compileShader(shader);
-
-  if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
-    const err = new Error(
-      "An error occurred compiling the shaders: " + gl.getShaderInfoLog(shader)
-    );
-    gl.deleteShader(shader);
-    throw err;
+const createNebulaRenderer = function (regl: REGL.Regl) {
+  const pgWidth = 256;
+  const l = pgWidth * pgWidth * 2;
+  const data = new Uint8Array(l);
+  for (let i = 0; i < l; i++) {
+    data[i * 2] = Math.round(0.5 * (1.0 + Math.random()) * 255);
+    data[i * 2 + 1] = Math.round(0.5 * (1.0 + Math.random()) * 255);
   }
+  const pgTexture = regl.texture({
+    format: "luminance alpha",
+    width: pgWidth,
+    height: pgWidth,
+    data,
+    wrapS: "repeat",
+    wrapT: "repeat",
+  });
 
-  return shader;
+  return regl({
+    vert: nebulaVertSrc,
+    frag: nebulaFragSrc,
+    attributes: {
+      position: regl.buffer([-1, -1, 1, -1, 1, 1, -1, -1, 1, 1, -1, 1]),
+      uv: regl.buffer([0, 0, 1, 0, 1, 1, 0, 0, 1, 1, 0, 1]),
+    },
+    uniforms: {
+      tNoise: pgTexture,
+      tNoiseSize: pgWidth,
+      source: regl.prop<NebulaProps, "source">("source"),
+      offset: regl.prop<NebulaProps, "offset">("offset"),
+      scale: regl.prop<NebulaProps, "scale">("scale"),
+      falloff: regl.prop<NebulaProps, "falloff">("falloff"),
+      color: regl.prop<NebulaProps, "color">("color"),
+      density: regl.prop<NebulaProps, "density">("density"),
+    },
+    framebuffer: regl.prop<NebulaProps, "destination">("destination"),
+    viewport: regl.prop<NebulaProps, "viewport">("viewport"),
+    count: 6,
+  });
+};
+
+interface NebulaProps {
+  source: REGL.Framebuffer2D;
+  offset: REGL.Vec2;
+  scale: number;
+  falloff: number;
+  color: REGL.Vec3;
+  density: number;
+  destination: REGL.Framebuffer2D;
+  viewport: Viewport;
 }
 
-/**
- * Initialize array buffers.
- * @param {WebGLRenderingContextBase} gl webgl rendering context.
- */
-function initBuffer(gl: WebGLRenderingContext) {
-  const positionBuffer = gl.createBuffer();
+const createStarRenderer = function (regl: REGL.Regl) {
+  return regl({
+    vert: starVertSrc,
+    frag: starFragSrc,
+    attributes: {
+      position: regl.buffer([-1, -1, 1, -1, 1, 1, -1, -1, 1, 1, -1, 1]),
+      uv: regl.buffer([0, 0, 1, 0, 1, 1, 0, 0, 1, 1, 0, 1]),
+    },
+    uniforms: {
+      source: regl.prop<StarProps, "source">("source"),
+      center: regl.prop<StarProps, "center">("center"),
+      coreRadius: regl.prop<StarProps, "coreRadius">("coreRadius"),
+      coreColor: regl.prop<StarProps, "coreColor">("coreColor"),
+      haloColor: regl.prop<StarProps, "haloColor">("haloColor"),
+      haloFalloff: regl.prop<StarProps, "haloFalloff">("haloFalloff"),
+      resolution: regl.prop<StarProps, "resolution">("resolution"),
+      scale: regl.prop<StarProps, "scale">("scale"),
+    },
+    framebuffer: regl.prop<StarProps, "destination">("destination"),
+    viewport: regl.prop<StarProps, "viewport">("viewport"),
+    count: 6,
+  });
+};
 
-  if (positionBuffer === null)
-    throw new Error("An error occured creating buffer.");
-
-  gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
-  // Square plane coords.
-  const positions = [-1.0, 1.0, 1.0, 1.0, -1.0, -1.0, 1.0, -1.0];
-  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(positions), gl.STATIC_DRAW);
-
-  return positionBuffer;
-}
-
-var g_offset = 0;
-
-/**
- * Draw a scene
- * @param {WebGLRenderingContextBase} gl webgl rendering context.
- * @param {ProgramInfo} programInfo
- * @param {WebGLBuffer} buffer VAO.
- * @param {number} mousex current mouse x position.
- * @param {number} mousey current mouse y position.
- */
-function drawScene(
-  gl: WebGLRenderingContext,
-  programInfo: ProgramInfo,
-  buffer: WebGLBuffer,
-  mousex: number,
-  mousey: number
-) {
-  gl.clearColor(0.0, 0.0, 0.0, 1.0);
-  gl.clear(gl.COLOR_BUFFER_BIT);
-
-  // Tell WebGL how to pull out the positions from the position
-  // buffer into the vertexPosition attribute.
-  {
-    const numComponents = 2; // pull out 2 values per iteration
-    const type = gl.FLOAT; // the data in the buffer is 32bit floats
-    const normalize = false; // don't normalize
-
-    // how many bytes to get from one set of values to the next
-    // 0 = use type and numComponents above
-    const stride = 0;
-    const offset = 0; // how many bytes inside the buffer to start from
-    gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
-    gl.vertexAttribPointer(
-      programInfo.attribLocations["vertexPosition"],
-      numComponents,
-      type,
-      normalize,
-      stride,
-      offset
-    );
-    gl.enableVertexAttribArray(programInfo.attribLocations["vertexPosition"]);
-  }
-
-  gl.useProgram(programInfo.program);
-
-  if (g_offset === 0) g_offset = new Date().getMilliseconds();
-
-  // Bind uniforms
-  gl.uniform1f(programInfo.uniformLocations["offset"], g_offset);
-  gl.uniform2f(
-    programInfo.uniformLocations["resolution"],
-    gl.drawingBufferWidth,
-    gl.drawingBufferHeight
-  );
-
-  if (mousex !== undefined && mousey !== undefined)
-    gl.uniform2f(programInfo.uniformLocations["mouse"], mousex, mousey);
-  else
-    gl.uniform2f(
-      programInfo.uniformLocations["mouse"],
-      window.innerWidth / 2,
-      window.innerHeight / 2
-    );
-
-  {
-    const offset = 0;
-    const vertexCount = 4;
-    gl.drawArrays(gl.TRIANGLE_STRIP, offset, vertexCount);
-  }
+interface StarProps {
+  center: REGL.Vec2;
+  coreRadius: number;
+  coreColor: REGL.Vec3;
+  haloColor: REGL.Vec3;
+  haloFalloff: number;
+  resolution: REGL.Vec2;
+  scale: number;
+  source: REGL.Framebuffer2D;
+  destination: REGL.Framebuffer2D;
+  viewport: Viewport;
 }
 </script>
 
@@ -240,7 +340,19 @@ function drawScene(
 #spaceCanvas {
   width: 100%;
   height: 100%;
-  filter: blur(0.1rem);
+  position: relative;
+}
+
+.fade {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  bottom: 0;
+  left: 0;
+  pointer-events: none;
+  background-image: linear-gradient(to bottom, #2e344000 20%, #2e3440ff 85%);
+  width: 100%;
+  height: 6em;
 }
 
 .arrow {
@@ -250,6 +362,7 @@ function drawScene(
   width: 100%;
   top: calc(100% - 6rem);
   text-align: center;
+  z-index: 2;
 
   animation: arrow-animation 2s infinite ease;
 }

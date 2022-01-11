@@ -130,6 +130,7 @@ export default defineComponent({
   position: fixed;
   bottom: 0.5rem;
   right: 0.5rem;
+  z-index: 2;
 }
 
 @media screen and (max-width: 975px) {
