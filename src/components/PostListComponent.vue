@@ -61,7 +61,7 @@
         />
         <tech-icon-component icon="python-original" title="Python" />
         <tech-icon-component icon="react-original" title="React" />
-        <tech-icon-component icon="denojs-original" title="React" inverted />
+        <tech-icon-component icon="denojs-original" title="Deno" inverted />
         <tech-icon-component
           icon="neo4j-plain-wordmark"
           title="Neo4j"
