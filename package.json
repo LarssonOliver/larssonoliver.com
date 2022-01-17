@@ -16,7 +16,8 @@
     "postcss": ">=8.2.13",
     "regl": "^2.1.0",
     "typewriter-effect": "^2.18.0",
-    "vue": "^3.0.0"
+    "vue": "^3.0.0",
+    "follow-redirects": ">=1.14.7"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^4.18.0",
