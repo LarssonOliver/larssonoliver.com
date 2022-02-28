@@ -27,6 +27,18 @@
       A brainfuck interpreter written in C which conforms to the language
       specification.
     </project-list-item-component>
+    <project-list-item-component
+      title="lnkshrt"
+      github="https://github.com/larssonoliver/lnkshrt"
+      href="https://lnkshrt.larssonoliver.com"
+      img="lnkshrt.png"
+      fillImg
+    >
+      A simple link shortener API written in Go and an accompying next.js web
+      interface. The project was built to learn the lifetime of systems all the
+      way from code to deployment. Using CI/CD, it is built into container
+      images and deployed using kubernetes.
+    </project-list-item-component>
   </div>
 </template>
 
