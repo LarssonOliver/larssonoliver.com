@@ -23,8 +23,14 @@ export default defineComponent({
     PostListItemDividerComponent,
   },
   props: {
-    title: String,
-    subtitle: String,
+    title: {
+      type: String,
+      default: "",
+    },
+    subtitle: {
+      type: String,
+      default: "",
+    },
     colorHex: {
       type: String,
       default: "#2e3440", // nord0

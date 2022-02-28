@@ -12,7 +12,10 @@ const url = "https://cdn.jsdelivr.net/gh/devicons/devicon/icons";
 
 export default defineComponent({
   props: {
-    icon: String,
+    icon: {
+      type: String,
+      default: "",
+    },
     inverted: Boolean,
     small: Boolean,
   },

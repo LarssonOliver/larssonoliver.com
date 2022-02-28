@@ -16,7 +16,10 @@ export default defineComponent({
   components: { TechIconComponent },
   extends: TechIconComponent,
   props: {
-    href: String,
+    href: {
+      type: String,
+      default: "",
+    },
     newTab: Boolean,
   },
 });
