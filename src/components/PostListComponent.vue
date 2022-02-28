@@ -69,6 +69,11 @@
         />
         <tech-icon-component icon="postgresql-plain" title="PostgreSQL" />
         <tech-icon-component icon="nginx-original" title="Nginx" />
+        <tech-icon-component
+          icon="nextjs-original-wordmark"
+          inverted
+          title="NextJS"
+        />
       </div>
     </post-list-item-component>
     <post-list-item-component
