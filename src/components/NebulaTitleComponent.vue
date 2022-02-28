@@ -1,5 +1,5 @@
 <template>
-  <canvas @resize="render" id="spaceCanvas" ref="canv" />
+  <canvas id="spaceCanvas" ref="canv" @resize="render" />
   <div class="fade" />
   <title-text-component />
   <div class="arrow">↓</div>
@@ -9,12 +9,12 @@
 import { defineComponent, ref } from "vue";
 import REGL from "regl";
 import random from "../util/random";
-import copyVertSrc from "!raw-loader!@/shaders/copy_vertex.glsl";
-import copyFragSrc from "!raw-loader!@/shaders/copy_fragment.glsl";
-import nebulaVertSrc from "!raw-loader!@/shaders/nebula_vertex.glsl";
-import nebulaFragSrc from "!raw-loader!@/shaders/nebula_fragment.glsl";
-import starVertSrc from "!raw-loader!@/shaders/star_vertex.glsl";
-import starFragSrc from "!raw-loader!@/shaders/star_fragment.glsl";
+import copyVertSrc from "@/shaders/copy_vertex.glsl?raw";
+import copyFragSrc from "@/shaders/copy_fragment.glsl?raw";
+import nebulaVertSrc from "@/shaders/nebula_vertex.glsl?raw";
+import nebulaFragSrc from "@/shaders/nebula_fragment.glsl?raw";
+import starVertSrc from "@/shaders/star_vertex.glsl?raw";
+import starFragSrc from "@/shaders/star_fragment.glsl?raw";
 import TitleTextComponent from "./TitleTextComponent.vue";
 
 const renderscale = 1;

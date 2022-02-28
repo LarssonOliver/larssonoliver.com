@@ -2,7 +2,7 @@
   <div class="full-width" :style="{ backgroundColor: colorHex }">
     <post-list-item-divider-component
       v-if="!hideDivider"
-      :colorHex="prevColorHex"
+      :color-hex="prevColorHex"
     />
     <div class="item-container">
       <h2>{{ title }}</h2>
@@ -23,8 +23,14 @@ export default defineComponent({
     PostListItemDividerComponent,
   },
   props: {
-    title: String,
-    subtitle: String,
+    title: {
+      type: String,
+      default: "",
+    },
+    subtitle: {
+      type: String,
+      default: "",
+    },
     colorHex: {
       type: String,
       default: "#2e3440", // nord0

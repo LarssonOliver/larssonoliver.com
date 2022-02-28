@@ -37,11 +37,23 @@ import TechIconButtonComponent from "../TechIcon/TechIconButtonComponent.vue";
 export default defineComponent({
   components: { TechIconButtonComponent },
   props: {
-    img: String,
+    img: {
+      type: String,
+      default: "",
+    },
     fillImg: Boolean,
-    title: String,
-    href: String,
-    github: String,
+    title: {
+      type: String,
+      default: "",
+    },
+    href: {
+      type: String,
+      default: "",
+    },
+    github: {
+      type: String,
+      default: "",
+    },
   },
 });
 </script>
