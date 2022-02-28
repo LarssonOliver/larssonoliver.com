@@ -10,11 +10,6 @@
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore --fix src"
   },
   "dependencies": {
-    "follow-redirects": ">=1.14.8",
-    "glob-parent": ">=5.1.2",
-    "merge": ">=2.1.1",
-    "node-forge": ">=1.0.0",
-    "postcss": ">=8.2.13",
     "regl": "^2.1.0",
     "typewriter-effect": "^2.18.0",
     "vue": "^3.0.0"
@@ -30,7 +25,6 @@
     "eslint-plugin-prettier": "^3.3.1",
     "eslint-plugin-vue": "^8.5.0",
     "prettier": "^2.2.1",
-    "raw-loader": "^4.0.2",
     "typescript": "~4.1.5",
     "vite": "^2.5.4"
   }
