@@ -5,7 +5,7 @@
       img="larssonoliver.png"
       href="https://larssonoliver.com"
       github="https://github.com/larssonoliver/larssonoliver.github.io"
-      fillImg
+      fill-img
     >
       My personal webiste. Built with Vue 3, TypeScript and WebGL. Hosted
       through Github pages.
@@ -14,7 +14,7 @@
       title="PressureEngine"
       img="pressureengine.png"
       github="https://github.com/larssonoliver/PressureEngine"
-      fillImg
+      fill-img
     >
       A 3D graphics engine written in C++ using OpenGL for my end of high school
       project. Features include shadows, water, a particle system and more!
@@ -32,7 +32,7 @@
       github="https://github.com/larssonoliver/lnkshrt"
       href="https://lnkshrt.larssonoliver.com"
       img="lnkshrt.png"
-      fillImg
+      fill-img
     >
       A simple link shortener API written in Go and an accompying next.js web
       interface. The project was built to learn the lifetime of systems all the

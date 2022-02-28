@@ -1,6 +1,6 @@
 <template>
   <div class="list">
-    <post-list-item-component title="About Me" hideDivider>
+    <post-list-item-component title="About Me" hide-divider>
       <img
         class="avatar"
         src="https://avatars.githubusercontent.com/u/15251568?v=4"
@@ -11,12 +11,12 @@
         Systems. Outside my studies I am an avid golfer and skier.
       </p>
     </post-list-item-component>
-    <post-list-item-component title="My Projects" colorHex="#3b4252">
+    <post-list-item-component title="My Projects" color-hex="#3b4252">
       <project-list-component />
     </post-list-item-component>
     <post-list-item-component
       title="Tools and Technologies"
-      prevColorHex="#3b4252"
+      prev-color-hex="#3b4252"
     >
       <div style="text-align: center">
         <h3 style="margin-top: 0">Expert</h3>
@@ -79,7 +79,7 @@
     <post-list-item-component
       title="Next Up!"
       subtitle="Tools and technologies I want to learn next."
-      colorHex="#3b4252"
+      color-hex="#3b4252"
     >
       <div style="text-align: center">
         <tech-icon-component icon="vim-original" title="Vim" />

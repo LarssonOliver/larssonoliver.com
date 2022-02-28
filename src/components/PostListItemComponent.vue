@@ -2,7 +2,7 @@
   <div class="full-width" :style="{ backgroundColor: colorHex }">
     <post-list-item-divider-component
       v-if="!hideDivider"
-      :colorHex="prevColorHex"
+      :color-hex="prevColorHex"
     />
     <div class="item-container">
       <h2>{{ title }}</h2>

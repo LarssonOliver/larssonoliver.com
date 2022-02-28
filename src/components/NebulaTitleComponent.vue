@@ -1,5 +1,5 @@
 <template>
-  <canvas @resize="render" id="spaceCanvas" ref="canv" />
+  <canvas id="spaceCanvas" ref="canv" @resize="render" />
   <div class="fade" />
   <title-text-component />
   <div class="arrow">↓</div>
