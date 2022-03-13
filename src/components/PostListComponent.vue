@@ -74,6 +74,11 @@
           inverted
           title="NextJS"
         />
+        <tech-icon-component
+          icon="nuxtjs-plain-wordmark"
+          inverted
+          title="NuxtJS"
+        />
       </div>
     </post-list-item-component>
     <post-list-item-component
