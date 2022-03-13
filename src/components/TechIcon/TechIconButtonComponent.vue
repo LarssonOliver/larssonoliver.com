@@ -26,8 +26,8 @@ export default defineComponent({
 </script>
 
 <style scoped>
-a {
-  height: 0;
+img {
+  margin-bottom: -0.25em;
 }
 
 img:hover {

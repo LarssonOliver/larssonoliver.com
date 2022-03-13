@@ -14,16 +14,20 @@
     <div class="text">
       <h3 class="title">
         {{ title }}
-        <tech-icon-button-component
-          v-if="github"
-          icon="github-original"
-          inverted
-          small
-          :title="`${title} on Github`"
-          :href="github"
-          new-tab
-          class="repolink"
-        />
+        <div class="righttitle">
+          <a v-if="href" :href="href" target="_blank" rel="noopener noreferrer">
+            🔗
+          </a>
+          <tech-icon-button-component
+            v-if="github"
+            icon="github-original"
+            inverted
+            small
+            :title="`${title} on Github`"
+            :href="github"
+            new-tab
+          />
+        </div>
       </h3>
       <p><slot /></p>
     </div>
@@ -59,7 +63,7 @@ export default defineComponent({
 </script>
 
 <style scoped>
-.repolink {
+.righttitle {
   margin-top: -0.25em;
 }
 
@@ -103,5 +107,9 @@ export default defineComponent({
     min-height: 0;
     margin-bottom: 2rem;
   }
+}
+
+a {
+  text-decoration: none;
 }
 </style>
