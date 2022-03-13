@@ -39,6 +39,16 @@
       way from code to deployment. Using CI/CD, it is built into container
       images and deployed using kubernetes.
     </project-list-item-component>
+    <project-list-item-component
+      title="luci"
+      github="https://github.com/larssonoliver/luci"
+      href="https://luci.larssonoliver.com"
+      img="luci.jpg"
+      fill-img
+    >
+      Online photo album of a cat as a memorial after his sudden passing. Built
+      using Nuxt 3.
+    </project-list-item-component>
   </div>
 </template>
 
