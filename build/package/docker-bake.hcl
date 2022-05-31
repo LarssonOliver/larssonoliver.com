@@ -7,10 +7,10 @@ variable "REPO" {
 }
 
 group "default" {
-    targets = ["larssonoliver.com"]
+    targets = ["larssonoliverdotcom"]
 }
-
-target "larssonoliver.com" {
+a
+target "larssonoliverdotcom" {
     context = "."
     dockerfile = "build/package/Dockerfile.buildx"
     platforms = [
