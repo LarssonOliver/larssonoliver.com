@@ -9,7 +9,7 @@ variable "REPO" {
 group "default" {
     targets = ["larssonoliverdotcom"]
 }
-a
+
 target "larssonoliverdotcom" {
     context = "."
     dockerfile = "build/package/Dockerfile.buildx"
