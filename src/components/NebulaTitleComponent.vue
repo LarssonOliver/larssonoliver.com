@@ -2,7 +2,9 @@
   <canvas id="spaceCanvas" ref="canv" @resize="render" />
   <div class="fade" />
   <title-text-component />
-  <div class="arrow">↓</div>
+  <div ref="arrow" class="arrow">
+    <text class="arrow-icon" @click="scrollPast">↓</text>
+  </div>
 </template>
 
 <script lang="ts">
@@ -222,6 +224,14 @@ export default defineComponent({
         if (i === count) return alpha;
       }
     },
+
+    scrollPast: function () {
+      const element = this.$refs.arrow as HTMLElement;
+      element.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    },
   },
 });
 
@@ -376,6 +386,11 @@ interface StarProps {
   z-index: 2;
 
   animation: arrow-animation 2s infinite ease;
+}
+
+.arrow-icon {
+  margin: 0;
+  cursor: pointer;
 }
 
 @keyframes arrow-animation {
