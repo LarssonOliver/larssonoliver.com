@@ -13,7 +13,13 @@
 
     <div class="text">
       <h3 class="title">
-        {{ title }}
+        <a
+          :href="href ? href : github ? github : undefined"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {{ title }}
+        </a>
         <div class="righttitle">
           <a v-if="href" :href="href" target="_blank" rel="noopener noreferrer">
             🔗
@@ -111,5 +117,6 @@ export default defineComponent({
 
 a {
   text-decoration: none;
+  color: var(--nord6);
 }
 </style>
