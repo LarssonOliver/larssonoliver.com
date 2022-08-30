@@ -7,8 +7,9 @@
       />
       <p class="avatar-text">
         My name is Oliver and I am a Computer Science student from northern
-        Sweden. I specialize in High Performance Computing and Distributed
-        Systems. Outside my studies I am an avid golfer and skier.
+        Sweden. My main areas of interest are distributed systems and high
+        performance computing, but I enjoy exploring new technologies and the
+        process of learning.
       </p>
     </post-list-item-component>
     <post-list-item-component title="My Projects" color-hex="#3b4252">
@@ -19,7 +20,7 @@
       prev-color-hex="#3b4252"
     >
       <div style="text-align: center">
-        <h3 style="margin-top: 0">Expert</h3>
+        <h3 style="margin-top: 0">Experienced</h3>
         <tech-icon-component icon="c-original" title="C" />
         <tech-icon-component icon="csharp-original" title="C#" />
         <tech-icon-component icon="dotnetcore-original" title=".NET Core" />
@@ -38,9 +39,9 @@
         <tech-icon-component icon="html5-original" title="HTML5" />
         <tech-icon-component icon="javascript-original" title="JavaScript" />
         <tech-icon-component icon="nodejs-original" title="NodeJS" />
-        <br />
         <tech-icon-component icon="typescript-original" title="TypeScript" />
         <tech-icon-component icon="vuejs-original" title="VueJS" />
+        <br />
         <tech-icon-component icon="electron-original" title="Electron" />
         <tech-icon-component icon="go-original" title="Go" />
         <tech-icon-component icon="docker-original" title="Docker" />
@@ -51,6 +52,8 @@
           inverted
         />
         <tech-icon-component icon="opengl-plain" title="OpenGL" />
+        <tech-icon-component icon="ansible-plain" title="Ansible" inverted />
+        <tech-icon-component icon="latex-original" title="LaTeX" inverted />
         <hr />
         <h3>Novice</h3>
         <tech-icon-component icon="matlab-original" title="Matlab" />
@@ -69,6 +72,7 @@
         />
         <tech-icon-component icon="postgresql-plain" title="PostgreSQL" />
         <tech-icon-component icon="nginx-original" title="Nginx" />
+        <br />
         <tech-icon-component
           icon="nextjs-original-wordmark"
           inverted
@@ -79,6 +83,16 @@
           inverted
           title="NuxtJS"
         />
+        <tech-icon-component icon="googlecloud-plain" title="Google Cloud" />
+        <tech-icon-component icon="rust-plain" title="Rust" inverted />
+        <tech-icon-component
+          icon="terraform-plain"
+          title="Terraform"
+          inverted
+        />
+        <tech-icon-component icon="prometheus-original" title="Prometheus" />
+        <tech-icon-component icon="grafana-original" title="Grafana" />
+        <tech-icon-component icon="argocd-plain" title="ArgoCD" inverted />
       </div>
     </post-list-item-component>
     <post-list-item-component
@@ -88,7 +102,7 @@
     >
       <div style="text-align: center">
         <tech-icon-component icon="vim-original" title="Vim" />
-        <tech-icon-component icon="rust-plain" title="Rust" inverted />
+        <tech-icon-component icon="zig-original" title="Zig" />
       </div>
     </post-list-item-component>
   </div>

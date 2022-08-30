@@ -7,8 +7,7 @@
       github="https://github.com/larssonoliver/larssonoliver.github.io"
       fill-img
     >
-      My personal webiste. Built with Vue 3, TypeScript and WebGL. Hosted
-      through Github pages.
+      My personal webiste. Built with Vue 3, TypeScript and WebGL.
     </project-list-item-component>
     <project-list-item-component
       title="PressureEngine"
