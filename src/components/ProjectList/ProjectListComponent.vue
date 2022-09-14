@@ -38,6 +38,15 @@
       way from code to deployment. Using CI/CD, it is built into container
       images and deployed using kubernetes.
     </project-list-item-component>
+    <project-list-item-component
+      title="FeTP"
+      img="FeTP.png"
+      github="https://github.com/larssonoliver/fetp"
+    >
+      FeTP is a classical FTP server written in Rust with ~95% unit test
+      coverage. It initially served as a project for me to learn rust and to
+      learn to implement functionality from a specification. In this case RFCs.
+    </project-list-item-component>
   </div>
 </template>
 
