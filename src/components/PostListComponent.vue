@@ -6,10 +6,11 @@
         src="https://avatars.githubusercontent.com/u/15251568?v=4"
       />
       <p class="avatar-text">
-        My name is Oliver and I am a Computer Science student from northern
-        Sweden. My main areas of interest are distributed systems and high
-        performance computing, but I enjoy exploring new technologies and the
-        process of learning.
+        My name is Oliver and I'm a PhD student from northern Sweden. My main 
+        area of research is autonomous distributed systems, but I'm interested 
+        in almost anything that makes computers go beep boop. Everything from 
+        IoT to emulation to graphics to networking. I love learning 
+        new stuff and I'm starting to dive into open source development.
       </p>
     </post-list-item-component>
     <post-list-item-component title="My Projects" color-hex="#3b4252">
@@ -54,6 +55,7 @@
         <tech-icon-component icon="opengl-plain" title="OpenGL" />
         <tech-icon-component icon="ansible-plain" title="Ansible" inverted />
         <tech-icon-component icon="latex-original" title="LaTeX" inverted />
+        <tech-icon-component icon="vim-original" title="(Neo)Vim" />
         <hr />
         <h3>Novice</h3>
         <tech-icon-component icon="matlab-original" title="Matlab" />
@@ -93,6 +95,7 @@
         <tech-icon-component icon="prometheus-original" title="Prometheus" />
         <tech-icon-component icon="grafana-original" title="Grafana" />
         <tech-icon-component icon="argocd-plain" title="ArgoCD" inverted />
+        <tech-icon-component icon="redis-plain" title="Redis" />
       </div>
     </post-list-item-component>
     <post-list-item-component
@@ -101,7 +104,6 @@
       color-hex="#3b4252"
     >
       <div style="text-align: center">
-        <tech-icon-component icon="vim-original" title="Vim" />
         <tech-icon-component icon="zig-original" title="Zig" />
       </div>
     </post-list-item-component>

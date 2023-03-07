@@ -16,7 +16,7 @@ export default defineComponent({
       new Typewriter("#name", {})
         .changeDelay(50)
         .pauseFor(500)
-        .typeString("My name is Oliver")
+        .typeString("Hi, I'm Oliver")
         .pauseFor(250)
         .callFunction(this.startTitle)
         .start();
@@ -27,7 +27,7 @@ export default defineComponent({
 
       new Typewriter("#title", {})
         .changeDelay(50)
-        .typeString("I am a Computer Science student from Sweden")
+        .typeString("I'm a doctoral student from Sweden")
         .start();
     },
   },
