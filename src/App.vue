@@ -3,22 +3,22 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
-import HomeView from "./views/HomeView.vue";
+import { defineComponent } from 'vue'
+import HomeView from './views/HomeView.vue'
 
 export default defineComponent({
-  name: "App",
+  name: 'App',
   components: {
-    HomeView,
+    HomeView
   },
   mounted: function () {
-    document.title = "Oliver Larsson";
-  },
-});
+    document.title = 'Oliver Larsson'
+  }
+})
 </script>
 
 <style>
-@import "assets/vendor/nord.css";
+@import 'assets/vendor/nord.css';
 
 html {
   background-color: var(--nord0);

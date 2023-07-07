@@ -1,31 +1,28 @@
 <template>
-  <img
-    :src="fullUrl(icon)"
-    :class="{ invertColor: inverted, smallIcon: small }"
-  />
+  <img :src="fullUrl(icon)" :class="{ invertColor: inverted, smallIcon: small }" />
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent } from 'vue'
 
-const url = "https://cdn.jsdelivr.net/gh/devicons/devicon/icons";
+const url = 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons'
 
 export default defineComponent({
   props: {
     icon: {
       type: String,
-      default: "",
+      default: ''
     },
     inverted: Boolean,
-    small: Boolean,
+    small: Boolean
   },
   methods: {
     fullUrl(iconName: string): string {
-      const baseName = iconName.split("-")[0];
-      return `${url}/${baseName}/${iconName}.svg`;
-    },
-  },
-});
+      const baseName = iconName.split('-')[0]
+      return `${url}/${baseName}/${iconName}.svg`
+    }
+  }
+})
 </script>
 
 <style scoped>

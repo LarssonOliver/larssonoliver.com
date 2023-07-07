@@ -8,7 +8,7 @@
       :style="{
         transform: inverted ? 'rotateY(180deg)' : '',
         width: `calc(${width}% + 1.3px)`,
-        height: `${height}rem`,
+        height: `${height}rem`
       }"
     >
       <path
@@ -30,28 +30,28 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent } from 'vue'
 
 export default defineComponent({
   props: {
     colorHex: {
       type: String,
-      default: "#2e3440", // nord0
-    },
+      default: '#2e3440' // nord0
+    }
   },
   data: function () {
     return {
       inverted: false,
       width: 100,
-      height: 2,
-    };
+      height: 2
+    }
   },
   created: function () {
-    this.inverted = Math.random() > 0.5;
-    this.width = 100 + Math.random() * 200;
-    this.height = 2 + Math.random() * 2;
-  },
-});
+    this.inverted = Math.random() > 0.5
+    this.width = 100 + Math.random() * 200
+    this.height = 2 + Math.random() * 2
+  }
+})
 </script>
 
 <style scoped>

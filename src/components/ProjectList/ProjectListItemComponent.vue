@@ -3,13 +3,7 @@
     <a v-if="href" :href="href">
       <img :src="img" :alt="title" class="image" :class="{ fill: fillImg }" />
     </a>
-    <img
-      v-else
-      :src="img"
-      :alt="title"
-      class="image"
-      :class="{ fill: fillImg }"
-    />
+    <img v-else :src="img" :alt="title" class="image" :class="{ fill: fillImg }" />
 
     <div class="text">
       <h3 class="title">
@@ -21,9 +15,7 @@
           {{ title }}
         </a>
         <div class="righttitle">
-          <a v-if="href" :href="href" target="_blank" rel="noopener noreferrer">
-            🔗
-          </a>
+          <a v-if="href" :href="href" target="_blank" rel="noopener noreferrer"> 🔗 </a>
           <tech-icon-button-component
             v-if="github"
             icon="github-original"
@@ -41,31 +33,31 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
-import TechIconButtonComponent from "../TechIcon/TechIconButtonComponent.vue";
+import { defineComponent } from 'vue'
+import TechIconButtonComponent from '../TechIcon/TechIconButtonComponent.vue'
 
 export default defineComponent({
   components: { TechIconButtonComponent },
   props: {
     img: {
       type: String,
-      default: "",
+      default: ''
     },
     fillImg: Boolean,
     title: {
       type: String,
-      default: "",
+      default: ''
     },
     href: {
       type: String,
-      default: "",
+      default: ''
     },
     github: {
       type: String,
-      default: "",
-    },
-  },
-});
+      default: ''
+    }
+  }
+})
 </script>
 
 <style scoped>

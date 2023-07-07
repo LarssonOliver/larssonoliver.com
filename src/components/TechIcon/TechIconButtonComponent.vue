@@ -9,8 +9,8 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
-import TechIconComponent from "./TechIconComponent.vue";
+import { defineComponent } from 'vue'
+import TechIconComponent from './TechIconComponent.vue'
 
 export default defineComponent({
   components: { TechIconComponent },
@@ -18,11 +18,11 @@ export default defineComponent({
   props: {
     href: {
       type: String,
-      default: "",
+      default: ''
     },
-    newTab: Boolean,
-  },
-});
+    newTab: Boolean
+  }
+})
 </script>
 
 <style scoped>

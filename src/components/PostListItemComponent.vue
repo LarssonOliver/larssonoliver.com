@@ -1,9 +1,6 @@
 <template>
   <div class="full-width" :style="{ backgroundColor: colorHex }">
-    <post-list-item-divider-component
-      v-if="!hideDivider"
-      :color-hex="prevColorHex"
-    />
+    <post-list-item-divider-component v-if="!hideDivider" :color-hex="prevColorHex" />
     <div class="item-container">
       <h2>{{ title }}</h2>
       <p v-if="subtitle">{{ subtitle }}</p>
@@ -15,33 +12,33 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
-import PostListItemDividerComponent from "./PostListItemDividerComponent.vue";
+import { defineComponent } from 'vue'
+import PostListItemDividerComponent from './PostListItemDividerComponent.vue'
 
 export default defineComponent({
   components: {
-    PostListItemDividerComponent,
+    PostListItemDividerComponent
   },
   props: {
     title: {
       type: String,
-      default: "",
+      default: ''
     },
     subtitle: {
       type: String,
-      default: "",
+      default: ''
     },
     colorHex: {
       type: String,
-      default: "#2e3440", // nord0
+      default: '#2e3440' // nord0
     },
     prevColorHex: {
       type: String,
-      default: "#2e3440", // nord0
+      default: '#2e3440' // nord0
     },
-    hideDivider: Boolean,
-  },
-});
+    hideDivider: Boolean
+  }
+})
 </script>
 
 <style scoped>
@@ -73,7 +70,7 @@ h2:after {
   position: absolute;
   overflow: hidden;
   width: 40%;
-  content: "\a0";
+  content: '\a0';
   height: 2px;
   top: 50%;
   background-color: var(--nord3);
