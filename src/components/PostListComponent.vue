@@ -6,7 +6,8 @@
         My name is Oliver and I'm a PhD student from northern Sweden. My main area of research is
         autonomous distributed systems, but I'm interested in almost anything that makes computers
         go beep boop. Everything from IoT to emulation to graphics to networking. I love learning
-        new stuff and I'm starting to dive into open source development.
+        new stuff and I'm starting to dive into open source development. I even occasionally write
+        stuff over on my <a href="https://blog.larssonoliver.com">blog</a>.
       </p>
     </post-list-item-component>
     <post-list-item-component title="My Projects" color-hex="#3b4252">
@@ -169,5 +170,10 @@ hr {
 
 .list {
   padding-top: 1rem;
+}
+
+a,
+a:visited {
+  color: var(--nord6);
 }
 </style>
