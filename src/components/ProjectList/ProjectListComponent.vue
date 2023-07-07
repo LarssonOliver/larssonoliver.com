@@ -1,23 +1,23 @@
 <template>
   <div>
     <ProjectListItemComponent
-      title="larssonoliver.com"
+      title="Portfolio Website"
       img="larssonoliver.png"
       href="https://larssonoliver.com"
       github="https://github.com/larssonoliver/larssonoliver.com"
       fill-img
     >
-      My personal webiste. Built with Vue 3, TypeScript and WebGL.
+      My personal website. Built with Vue 3, TypeScript and WebGL.
     </ProjectListItemComponent>
     <ProjectListItemComponent
-      title="blog.larssonoliver.com"
+      title="Personal Blog Platform"
       img="blog.png"
       href="https://blog.larssonoliver.com"
       github="https://github.com/larssonoliver/blg"
       fill-img
     >
-      My personal blog. I write stuff occasionally. The blog platform is built
-      using Nuxt 3 and Nuxt content.
+      My personal blog. I write stuff occasionally. The blog platform is built using Nuxt 3 and Nuxt
+      content.
     </ProjectListItemComponent>
     <ProjectListItemComponent
       title="FeTP"
