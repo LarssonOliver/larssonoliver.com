@@ -8,7 +8,7 @@ on:
 jobs:
   bake:
     runs-on: larssonoliverdotcom-runner-set
-    container: ghcr.io/actions-runner-controller/actions-runner-controller/actions-runner-dind:ubuntu-22.04
+    container: docker:git
     steps:
       - name: Checkout
         uses: actions/checkout@v4
