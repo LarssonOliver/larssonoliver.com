@@ -7,7 +7,7 @@ on:
 
 jobs:
   bake:
-    runs-on: self-hosted
+    runs-on: larssonoliverdotcom-runner-set
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -37,7 +37,7 @@ jobs:
           push: true
 
   pages:
-    runs-on: self-hosted
+    runs-on: larssonoliverdotcom-runner-set
     steps:
       - name: Checkout
         uses: actions/checkout@v2
