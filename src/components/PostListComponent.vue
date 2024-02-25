@@ -57,7 +57,7 @@
         <tech-icon-component icon="nextjs-original-wordmark" inverted title="NextJS" />
         <tech-icon-component icon="nuxtjs-plain-wordmark" inverted title="NuxtJS" />
         <tech-icon-component icon="googlecloud-plain" title="Google Cloud" />
-        <tech-icon-component icon="rust-plain" title="Rust" inverted />
+        <tech-icon-component icon="rust-original" title="Rust" inverted />
         <tech-icon-component icon="terraform-plain" title="Terraform" inverted />
         <tech-icon-component icon="prometheus-original" title="Prometheus" />
         <tech-icon-component icon="grafana-original" title="Grafana" />
