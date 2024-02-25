@@ -13,7 +13,19 @@
     <post-list-item-component title="My Projects" color-hex="#3b4252">
       <project-list-component />
     </post-list-item-component>
-    <post-list-item-component title="Tools and Technologies" prev-color-hex="#3b4252">
+    <post-list-item-component title="Publications" prev-color-hex="#3b4252">
+      <!-- Been exporting as HTML from Zotero -->
+      <p class="publication">
+        <strong>O. Larsson</strong>, C. Klein, and E. Elmroth, “The Impact of Directed Pod Eviction
+        on Kubernetes Resource Utilization,” in
+        <i>2023 IEEE International Conference on Service-Oriented System Engineering (SOSE)</i>,
+        Jul. 2023, pp. 81–90. doi:
+        <a target="_blank" href="https://doi.org/10.1109/SOSE58276.2023.00016"
+          >10.1109/SOSE58276.2023.00016</a
+        >.
+      </p>
+    </post-list-item-component>
+    <post-list-item-component title="Tools and Technologies" color-hex="#3b4252">
       <div style="text-align: center">
         <h3 style="margin-top: 0">Experienced</h3>
         <tech-icon-component icon="c-original" title="C" />
@@ -68,7 +80,7 @@
     <post-list-item-component
       title="Next Up!"
       subtitle="Tools and technologies I want to learn next."
-      color-hex="#3b4252"
+      prev-color-hex="#3b4252"
     >
       <div style="text-align: center">
         <tech-icon-component icon="zig-original" title="Zig" />
@@ -149,6 +161,13 @@ export default defineComponent({
   text-align: justify;
   min-height: 10rem;
   padding-top: 1rem;
+}
+
+.publication {
+  text-align: justify;
+  font-size: 1.2rem;
+  width: 80%;
+  margin-left: 10%;
 }
 
 @media screen and (max-width: 550px) {
