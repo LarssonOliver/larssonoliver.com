@@ -49,6 +49,15 @@
       it is built into container images and deployed using kubernetes.
     </ProjectListItemComponent>
     <ProjectListItemComponent
+      title="si-printer-bridge"
+      img="si-printer-bridge.png"
+      github="https://github.com/larssonoliver/si-printer-bridge"
+      fill-img
+    >
+      A Raspberry Pi Pico (rp2040) based embedded which bridges a SportIdent Orienteering chip
+      reader to a thermal printer. The project is built using C, TinyUsb, and the Pico SDK.
+    </ProjectListItemComponent>
+    <ProjectListItemComponent
       title="bf"
       img="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg"
       github="https://github.com/larssonoliver/bf"
