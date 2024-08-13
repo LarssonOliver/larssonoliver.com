@@ -29,6 +29,23 @@
       specification. In this case RFCs.
     </ProjectListItemComponent>
     <ProjectListItemComponent
+      title="si-printer-bridge"
+      img="si-printer-bridge.png"
+      github="https://github.com/larssonoliver/si-printer-bridge"
+      fill-img
+    >
+      A Raspberry Pi Pico (rp2040) based embedded which bridges a SportIdent Orienteering chip
+      reader to a thermal printer. The project is built using C, TinyUsb, and the Pico SDK.
+    </ProjectListItemComponent>
+    <ProjectListItemComponent
+      title="ZHIP8"
+      img="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/zig/zig-original-wordmark.svg"
+      github="https://github.com/larssonoliver/zhip8"
+    >
+      CHIP-8 emulator built with the intention of learning Zig, a low-level language that is
+      designed to be simple and efficient.
+    </ProjectListItemComponent>
+    <ProjectListItemComponent
       title="PressureEngine"
       img="pressureengine.png"
       github="https://github.com/larssonoliver/PressureEngine"
@@ -47,15 +64,6 @@
       A simple link shortener API written in Go and an accompying next.js web interface. The project
       was built to learn the lifetime of systems all the way from code to deployment. Using CI/CD,
       it is built into container images and deployed using kubernetes.
-    </ProjectListItemComponent>
-    <ProjectListItemComponent
-      title="si-printer-bridge"
-      img="si-printer-bridge.png"
-      github="https://github.com/larssonoliver/si-printer-bridge"
-      fill-img
-    >
-      A Raspberry Pi Pico (rp2040) based embedded which bridges a SportIdent Orienteering chip
-      reader to a thermal printer. The project is built using C, TinyUsb, and the Pico SDK.
     </ProjectListItemComponent>
     <ProjectListItemComponent
       title="bf"

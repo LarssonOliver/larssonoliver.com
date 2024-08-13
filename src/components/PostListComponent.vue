@@ -65,8 +65,8 @@
         <tech-icon-component icon="neo4j-plain-wordmark" title="Neo4j" inverted />
         <tech-icon-component icon="postgresql-plain" title="PostgreSQL" />
         <tech-icon-component icon="nginx-original" title="Nginx" />
-        <br />
         <tech-icon-component icon="nextjs-original-wordmark" inverted title="NextJS" />
+        <br />
         <tech-icon-component icon="nuxtjs-plain-wordmark" inverted title="NuxtJS" />
         <tech-icon-component icon="googlecloud-plain" title="Google Cloud" />
         <tech-icon-component icon="rust-original" title="Rust" inverted />
@@ -75,17 +75,17 @@
         <tech-icon-component icon="grafana-original" title="Grafana" />
         <tech-icon-component icon="argocd-plain" title="ArgoCD" inverted />
         <tech-icon-component icon="redis-plain" title="Redis" />
+        <tech-icon-component icon="zig-original" title="Zig" />
       </div>
     </post-list-item-component>
-    <post-list-item-component
+    <!--<post-list-item-component
       title="Next Up!"
       subtitle="Tools and technologies I want to learn next."
       prev-color-hex="#3b4252"
     >
       <div style="text-align: center">
-        <tech-icon-component icon="zig-original" title="Zig" />
       </div>
-    </post-list-item-component>
+    </post-list-item-component>-->
   </div>
 
   <div class="contact">
