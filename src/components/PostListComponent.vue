@@ -16,9 +16,28 @@
     <post-list-item-component title="Publications" prev-color-hex="#3b4252">
       <!-- Been exporting as HTML from Zotero -->
       <p class="publication">
-        <strong>O. Larsson</strong>, C. Klein, and E. Elmroth, “The Impact of Directed Pod Eviction
-        on Kubernetes Resource Utilization,” in
-        <i>2023 IEEE International Conference on Service-Oriented System Engineering (SOSE)</i>,
+        <strong>O. Larsson</strong>, T. Metsch, C. Klein, and E. Elmroth,
+        <a
+          target="_blank"
+          href="/files/2025 - Larsson, Metsch, Klein, Elmroth - ESTHER - Application-First Hardware-Level QoS-Enforcement for Cloud Native Environments.pdf"
+        >
+          “ESTHER: Application-First Hardware-Level QoS-Enforcement for Cloud Native Environments”,
+        </a>
+        in <i>2025 IEEE 18th International Conference on Cloud Computing (CLOUD)</i>, Jul. 2025, pp.
+        75–85. doi:
+        <a target="_blank" href="https://doi.org/10.1109/CLOUD67622.2025.00018"
+          >10.1109/CLOUD67622.2025.00018</a
+        >.
+      </p>
+      <p class="publication">
+        <strong>O. Larsson</strong>, C. Klein, and E. Elmroth,
+        <a
+          target="_blank"
+          href="/files/2023 - Larsson, Klein, Elmroth - The Impact of Directed Pod Eviction on Kubernetes Resource Utilization.pdf"
+        >
+          “The Impact of Directed Pod Eviction on Kubernetes Resource Utilization,”
+        </a>
+        in <i>2023 IEEE International Conference on Service-Oriented System Engineering (SOSE)</i>,
         Jul. 2023, pp. 81–90. doi:
         <a target="_blank" href="https://doi.org/10.1109/SOSE58276.2023.00016"
           >10.1109/SOSE58276.2023.00016</a
