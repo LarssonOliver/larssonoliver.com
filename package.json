@@ -8,7 +8,6 @@
     "build-only": "vite build",
     "serve": "vite preview",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
-    "postversion": "git push && git push --tags",
     "type-check": "vue-tsc --noEmit -p tsconfig.app.json --composite false",
     "format": "prettier --write src/"
   },
