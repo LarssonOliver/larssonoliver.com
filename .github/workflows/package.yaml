@@ -8,6 +8,8 @@ on:
 jobs:
   bake:
     runs-on: larssonoliverdotcom-runner-set
+    permissions:
+      contents: read
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -29,27 +31,3 @@ jobs:
         uses: docker/bake-action@v4
         with:
           push: true
-
-  pages:
-    runs-on: larssonoliverdotcom-runner-set
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: 18
-
-      - name: Dependency Install
-        run: npm ci
-
-      - name: Build
-        run: npm run build
-
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
-        if: ${{ github.ref == 'refs/heads/main' }}
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
