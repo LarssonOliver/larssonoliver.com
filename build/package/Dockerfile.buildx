@@ -23,10 +23,10 @@ ARG PORT=80
 
 WORKDIR /app
 
-ENV NODE_ENV production
-ENV PORT $ARG 
+ENV NODE_ENV=production
+ENV PORT=$PORT
 
-EXPOSE $ARG
+EXPOSE ${PORT}
 
 COPY --from=builder /app/dist /usr/share/nginx/html 
 
