@@ -1,4 +1,4 @@
-# Oliver's Portfolio Website 🌐
+# 🌐 Oliver's Portfolio Website
 
 <div align="center">
 
@@ -22,7 +22,7 @@ This is the source code for my personal website, built using [Vue.js](https://vu
 
 ---
 
-## Local Development 💻
+## 💻 Local Development
 
 ```bash
 # Install dependencies
@@ -34,7 +34,7 @@ npm run dev
 
 See [package.json](./package.json) for more scripts.
 
-## Building 🐳
+## 🐳 Building
 
 Building local image:
 
@@ -50,6 +50,6 @@ Build multi-arch image for release:
 TAG="$(git describe --tags --always --dirty)" docker buildx bake
 ```
 
-## License 📄
+## 📄 License
 
 This project is licensed under the [MIT License](./LICENSE).
