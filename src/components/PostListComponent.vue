@@ -16,18 +16,16 @@
     <post-list-item-component title="Publications" prev-color-hex="#3b4252">
       <!-- Been exporting as HTML from Zotero -->
       <p class="publication">
-        <strong>O. Larsson</strong>, T. Metsch, C. Klein, and E. Elmroth, 
-        <a 
+        <strong>O. Larsson</strong>, T. Metsch, C. Klein, and E. Elmroth,
+        <a
           target="_blank"
           href="/files/2025 - Larsson, Metsch, Klein, Elmroth - Hardware-Level QoS Enforcement Features - Technologies, Use Cases, and Research Challenges.pdf"
         >
-          “Hardware-Level QoS Enforcement Features: Technologies, Use Cases, and Research Challenges,” 
+          “Hardware-Level QoS Enforcement Features: Technologies, Use Cases, and Research
+          Challenges,”
         </a>
-          <i>ACM Computing Surveys</i>, 
-          Nov. 2025, doi: 
-          <a target="_blank" href="https://doi.org/10.1145/3774317"
-            >10.1145/3774317</a
-          >.
+        <i>ACM Computing Surveys</i>, Nov. 2025, doi:
+        <a target="_blank" href="https://doi.org/10.1145/3774317">10.1145/3774317</a>.
       </p>
       <p class="publication">
         <strong>O. Larsson</strong>, T. Metsch, C. Klein, and E. Elmroth,
@@ -45,14 +43,12 @@
       </p>
       <p class="publication">
         C. Nguyen, E. Seo, M. Zahid, <strong>O. Larsson</strong>, F. T. Pokorny, and E. Elmroth,
-        <a
-          target="_blank"
-          href="https://doi.org/10.1109/NOMS57970.2025.11073596"
-        >
-          “tinyKube: A Middleware for Dynamic Resource Management in Cloud-Edge Platforms for Large-Scale Cloud Robotics,”
+        <a target="_blank" href="https://doi.org/10.1109/NOMS57970.2025.11073596">
+          “tinyKube: A Middleware for Dynamic Resource Management in Cloud-Edge Platforms for
+          Large-Scale Cloud Robotics,”
         </a>
-        in <i>2025 IEEE Network Operations and Management Symposium (NOMS)</i>,
-        May. 2025, pp. 1–8. doi:
+        in <i>2025 IEEE Network Operations and Management Symposium (NOMS)</i>, May. 2025, pp. 1–8.
+        doi:
         <a target="_blank" href="https://doi.org/10.1109/NOMS57970.2025.11073596"
           >10.1109/NOMS57970.2025.11073596</a
         >.
