@@ -19,7 +19,7 @@
         <strong>O. Larsson</strong>, T. Metsch, C. Klein, and E. Elmroth, 
         <a 
           target="_blank"
-          href="https://doi.org/10.1145/3774317"
+          href="/files/2025 - Larsson, Metsch, Klein, Elmroth - Hardware-Level QoS Enforcement Features - Technologies, Use Cases, and Research Challenges.pdf"
         >
           “Hardware-Level QoS Enforcement Features: Technologies, Use Cases, and Research Challenges,” 
         </a>
