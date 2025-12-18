@@ -24,7 +24,7 @@
           “Hardware-Level QoS Enforcement Features: Technologies, Use Cases, and Research
           Challenges,”
         </a>
-        <i>ACM Computing Surveys</i>, Nov. 2025, doi:
+        <i>ACM Computing Surveys</i>, vol. 58, no. 6, p. 145:1-145:35, Dec. 2025, doi:
         <a target="_blank" href="https://doi.org/10.1145/3774317">10.1145/3774317</a>.
       </p>
       <p class="publication">
