@@ -1,0 +1,30 @@
+when:
+  - event: tag
+    ref: refs/tags/v*
+
+steps:
+  - name: build-and-push
+    image: woodpeckerci/plugin-docker-buildx:6.0.4
+    settings:
+      registry: git.larssonoliver.com
+      repo: git.larssonoliver.com/oliver/larssonoliver.com
+      tags:
+        - latest
+        - "${CI_COMMIT_TAG}"
+      dockerfile: build/package/Dockerfile.buildx
+      platforms: linux/amd64,linux/arm64
+      username:
+        from_secret: registry_user
+      password:
+        from_secret: registry_password
+    backend_options:
+      kubernetes:
+        tolerations:
+          - key: amd64
+            value: "true"
+            effect: PreferNoSchedule
+        nodeSelector:
+          kubernetes.io/arch: amd64
+
+
+
