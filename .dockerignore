@@ -5,3 +5,6 @@ npm-debug.log
 README.md
 .env.local
 dist
+.git
+.github
+.woodpecker
