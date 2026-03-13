@@ -3,7 +3,7 @@
 <div align="center">
 
   ![GitHub License](https://img.shields.io/github/license/larssonoliver/larssonoliver.com)
-  ![GitHub branch check runs](https://img.shields.io/github/check-runs/larssonoliver/larssonoliver.com/main?label=build)
+  [![CI status](https://woodpecker.larssonoliver.com/api/badges/4/status.svg)](https://woodpecker.larssonoliver.com/repos/4)
   ![GitHub package.json version](https://img.shields.io/github/package-json/v/larssonoliver/larssonoliver.com)
   ![Vue JS](https://img.shields.io/badge/Vue.js-35495E?logo=vuedotjs&logoColor=4FC08D)
 
