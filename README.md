@@ -40,14 +40,18 @@ Building local image:
 
 ```bash
 # Build image
-docker build -t larssonoliver/larssonoliver.com .
+docker build -t git.larssonoliver.com/oliver/larssonoliver.com .
 ```
 
-Build multi-arch image for release:
+## 🚀 Release
+
+Release by creating a new git tag. This can be easily done using:
 
 ```bash
-# Builds image tagged both "latest" and the tag based on "git describe"
-TAG="$(git describe --tags --always --dirty)" docker buildx bake
+npm version <major|minor|patch>
+
+# Push the commit and tag
+git push --follow-tags
 ```
 
 ## 📄 License
