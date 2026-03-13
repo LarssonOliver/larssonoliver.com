@@ -1,0 +1,34 @@
+when:
+  - event: pull_request
+  - event: push
+    branch: main
+
+steps:
+  - name: install
+    image: node:24-alpine
+    directory: frontend
+    commands:
+      - npm ci
+    backend_options: &backops
+      kubernetes:
+        tolerations:
+          - key: amd64
+            value: "true"
+            effect: PreferNoSchedule
+        nodeSelector:
+          kubernetes.io/arch: amd64
+
+  - name: lint
+    image: node:24-alpine
+    directory: frontend
+    commands:
+      - npm run lint
+    backend_options: *backops
+
+  - name: build
+    image: node:24-alpine
+    directory: frontend
+    commands:
+      - npm run build
+    backend_options: *backops
+
