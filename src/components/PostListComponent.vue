@@ -72,63 +72,61 @@
       <div style="text-align: center">
         <h3 style="margin-top: 0">Experienced</h3>
         <tech-icon-component icon="c-original" title="C" />
-        <tech-icon-component icon="csharp-original" title="C#" />
-        <tech-icon-component icon="dotnetcore-original" title=".NET Core" />
-        <tech-icon-component icon="java-original" title="Java" />
-        <tech-icon-component icon="visualstudio-plain" title="Visual Studio" />
-        <tech-icon-component icon="vscode-original" title="Visual Studio Code" />
-        <hr />
-        <h3>Proficient</h3>
-        <tech-icon-component icon="cplusplus-original" title="C++" />
         <tech-icon-component icon="bash-original" title="Bash" inverted />
         <tech-icon-component icon="git-original" title="Git" />
+        <tech-icon-component icon="typescript-original" title="TypeScript" />
+        <tech-icon-component icon="kubernetes-plain" title="Kubernetes" />
+        <tech-icon-component icon="k3s-original" title="K3s" />
+        <h3>Regularly Working With</h3>
         <tech-icon-component icon="css3-original" title="CSS3" />
         <tech-icon-component icon="html5-original" title="HTML5" />
         <tech-icon-component icon="javascript-original" title="JavaScript" />
-        <tech-icon-component icon="nodejs-original" title="NodeJS" />
-        <tech-icon-component icon="typescript-original" title="TypeScript" />
-        <tech-icon-component icon="vuejs-original" title="VueJS" />
-        <br />
-        <tech-icon-component icon="electron-original" title="Electron" />
-        <tech-icon-component icon="go-original" title="Go" />
-        <tech-icon-component icon="docker-original" title="Docker" />
-        <tech-icon-component icon="kubernetes-plain" title="Kubernetes" />
-        <tech-icon-component icon="markdown-original" title="Markdown" inverted />
-        <tech-icon-component icon="opengl-plain" title="OpenGL" />
-        <tech-icon-component icon="ansible-plain" title="Ansible" inverted />
-        <tech-icon-component icon="latex-original" title="LaTeX" inverted />
-        <tech-icon-component icon="vim-original" title="(Neo)Vim" />
-        <hr />
-        <h3>Novice</h3>
-        <tech-icon-component icon="matlab-original" title="Matlab" />
-        <tech-icon-component icon="microsoftsqlserver-plain" title="MSSQL" inverted />
-        <tech-icon-component icon="python-original" title="Python" />
-        <tech-icon-component icon="react-original" title="React" />
         <tech-icon-component icon="denojs-original" title="Deno" inverted />
-        <tech-icon-component icon="neo4j-plain-wordmark" title="Neo4j" inverted />
-        <tech-icon-component icon="postgresql-plain" title="PostgreSQL" />
-        <tech-icon-component icon="nginx-original" title="Nginx" />
-        <tech-icon-component icon="nextjs-original-wordmark" inverted title="NextJS" />
-        <br />
-        <tech-icon-component icon="nuxtjs-plain-wordmark" inverted title="NuxtJS" />
-        <tech-icon-component icon="googlecloud-plain" title="Google Cloud" />
-        <tech-icon-component icon="rust-original" title="Rust" inverted />
-        <tech-icon-component icon="terraform-plain" title="Terraform" inverted />
+        <tech-icon-component icon="nodejs-original-wordmark" title="NodeJS" />
+        <tech-icon-component icon="vuejs-original" title="VueJS" />
         <tech-icon-component icon="prometheus-original" title="Prometheus" />
         <tech-icon-component icon="grafana-original" title="Grafana" />
         <tech-icon-component icon="argocd-plain" title="ArgoCD" inverted />
+        <tech-icon-component icon="helm-original" title="Helm" />
+        <tech-icon-component icon="docker-original" title="Docker" />
+        <tech-icon-component icon="go-original-wordmark" title="Go" />
+        <tech-icon-component icon="tmux-original" title="tmux" />
+        <tech-icon-component icon="markdown-original" title="Markdown" inverted />
+        <tech-icon-component icon="ansible-plain" title="Ansible" inverted />
+        <tech-icon-component icon="latex-original" title="LaTeX" inverted />
+        <tech-icon-component icon="postgresql-plain" title="PostgreSQL" />
+        <tech-icon-component icon="sqlite-original" title="SQLite" />
         <tech-icon-component icon="redis-plain" title="Redis" />
+        <tech-icon-component icon="nginx-original" title="Nginx" />
+        <tech-icon-component icon="cloudflare-original" title="Cloudflare" />
+        <tech-icon-component icon="neovim-original" title="NeoVim" />
+        <tech-icon-component icon="lua-original" title="Lua" />
+        <tech-icon-component icon="postman-original" title="Postman" />
+        <tech-icon-component icon="proxmox-original-wordmark" title="Proxmox" />
+        <tech-icon-component icon="netbox-original-wordmark" title="Netbox" />
+        <tech-icon-component icon="python-original" title="Python" />
+        <h3>Previously Worked With</h3>
+        <tech-icon-component icon="csharp-original" title="C#" />
+        <tech-icon-component icon="dotnetcore-original" title=".NET Core" />
+        <tech-icon-component icon="java-original" title="Java" />
+        <tech-icon-component icon="cplusplus-original" title="C++" />
+        <tech-icon-component icon="electron-original" title="Electron" />
+        <tech-icon-component icon="grpc-original" title="gRPC" />
+        <tech-icon-component icon="opengl-plain" title="OpenGL" />
+        <tech-icon-component icon="vim-original" title="(Neo)Vim" />
+        <tech-icon-component icon="matlab-original" title="Matlab" />
+        <tech-icon-component icon="microsoftsqlserver-plain" title="MSSQL" inverted />
+        <tech-icon-component icon="neo4j-plain-wordmark" title="Neo4j" inverted />
+        <tech-icon-component icon="nextjs-original-wordmark" inverted title="NextJS" />
+        <tech-icon-component icon="googlecloud-plain" title="Google Cloud" />
+        <tech-icon-component icon="rust-original" title="Rust" inverted />
+        <tech-icon-component icon="terraform-plain" title="Terraform" inverted />
         <tech-icon-component icon="zig-original" title="Zig" />
+        <tech-icon-component icon="powershell-original" title="Powershell" />
+        <tech-icon-component icon="react-original" title="React" />
+        <tech-icon-component icon="nuxtjs-plain-wordmark" inverted title="NuxtJS" />
       </div>
     </post-list-item-component>
-    <!--<post-list-item-component
-      title="Next Up!"
-      subtitle="Tools and technologies I want to learn next."
-      prev-color-hex="#3b4252"
-    >
-      <div style="text-align: center">
-      </div>
-    </post-list-item-component>-->
   </div>
 
   <div class="contact">
@@ -149,21 +147,11 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue'
+<script setup lang="ts">
 import PostListItemComponent from './PostListItemComponent.vue'
 import ProjectListComponent from './ProjectList/ProjectListComponent.vue'
 import TechIconButtonComponent from './TechIcon/TechIconButtonComponent.vue'
 import TechIconComponent from './TechIcon/TechIconComponent.vue'
-
-export default defineComponent({
-  components: {
-    PostListItemComponent,
-    TechIconComponent,
-    TechIconButtonComponent,
-    ProjectListComponent
-  }
-})
 </script>
 
 <style scoped>
