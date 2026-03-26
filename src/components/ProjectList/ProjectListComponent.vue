@@ -27,6 +27,11 @@ Inundated is a lightweight, self-hosted app that helps me track time across proj
       specification. In this case RFCs.
     </ProjectListItemComponent>
     <ProjectListItemComponent
+img="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-original-wordmark.svg"
+      title="Kubectl Plugin: set-pod-resources" github="https://github.com/LarssonOliver/kubectl-set_pod_resources">
+    The kubectl set-pod-resources plugin is designed to simplify InPlacePodVerticalScaling using the kubectl CLI tool after the changes to the subresource API in Kubernetes 1.32.
+    </ProjectListItemComponent>
+    <ProjectListItemComponent
 title="si-printer-bridge" img="si-printer-bridge.png"
       github="https://github.com/larssonoliver/si-printer-bridge" fill-img>
       A Raspberry Pi Pico (rp2040) based embedded which bridges a SportIdent Orienteering chip
